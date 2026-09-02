@@ -17,9 +17,12 @@ const OPTIONAL = ['./manifest.webmanifest', './icon-192.png', './icon-512.png', 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(VERSION);
-    await cache.addAll(CRITICAL);                       // must succeed
+    // cache:'reload' bypasses the HTTP cache, so a deploy can never bake a
+    // stale copy into the offline cache (GitHub Pages serves max-age=600)
+    const fresh = u => new Request(u, { cache: 'reload' });
+    await cache.addAll(CRITICAL.map(fresh));            // must succeed
     await Promise.all(OPTIONAL.map(u =>                 // nice to have
-      cache.add(u).catch(() => {})));
+      cache.add(fresh(u)).catch(() => {})));
     await self.skipWaiting();
   })());
 });
