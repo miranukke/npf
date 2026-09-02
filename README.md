@@ -68,8 +68,31 @@ If your body is not listed, pick **Other / manual entry** and type the sensor in
 - **French, English and Russian**, including the full derivation of the formula.
 - **Dark, light and red night-vision themes** — the red one is for use in the field,
   where white light wrecks your dark adaptation.
+- **Works offline.** A service worker caches the app on first visit, so it keeps
+  working with no signal — which is the whole point at a dark site.
 - **Add to Home Screen** on iOS and Android: opens full-screen with its own icon.
 - Remembers your camera and settings between visits.
+
+## Installing it on a phone
+
+Open <https://miranukke.github.io/npf/> and use **Share → Add to Home Screen** (iOS,
+in Safari) or **Install app** (Android). It gets its own icon, launches without
+browser chrome, and runs offline from then on.
+
+## Files
+
+| | |
+|---|---|
+| `index.html` | the entire application — open it straight off disk and it works |
+| `sw.js` | service worker; cache-first with a background refresh |
+| `manifest.webmanifest` | name, colours and icons for the installed app |
+| `icon-*.png` | launcher icons, including a maskable one for Android |
+
+Only `index.html` is required. The rest exist so the page can be installed and run
+offline; without them it still behaves exactly the same, just online-only.
+
+After changing `index.html`, bump `VERSION` in `sw.js` so installed copies pick the
+new build up.
 
 ## Verification
 
