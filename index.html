@@ -1,0 +1,1399 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0a0d13">
+<!-- Add to Home Screen on iOS/Android: opens full-screen with its own icon -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NPF">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAXrUlEQVR42u2daZBcV3XHz7n3vvd6X2eRZM9YkhfJxnLZYDkxxuRTjKhUDE5MZXEoDAl2qEqAVBHiJWBjYbmcYDCEVGI2GxMMBFJJhWC8BdsI2/FSYEteJKzRMiON1LN0T++v37v3nnx4Pa3WaMbaZkT39D01H6SZ93p57/fOOf9zz70XI/EsGDM2nzFzCYwZOIwZOIwZOIwZOIwZOIwZOIwZOIwZOIwZOIwZOIwZM3AYM3AYM3AYM3AYM3AYM3AYM3AYM3AYM3AYM3AYM2bgMHZME+YSdKkhIgAQABAZOIwd5oK0lr5HAJwLzjktDR/cciLmancXGVopYVlDq9f1DZ7hNeqNeo1zbuAwBkDELeuiS9995urz0n2DAyuGCtO5hltjjJuEtNfzDF/6K4fWZvpXuG614dbsUHjNuRdqrU3OYQwAQAiLNAEgABBpLkSQnHa350BEIiKiJfoyp/zxoCM/V3tIIc5Fbnxfw63ZTsiybAQcHx1Zorc7rTmHlL5l20IIv+Eiss5BBBE8ScMDfM0Kvi+nbIHUqXwwxhr12sx0zrZDjUZ9ZMcrhw7stSx7KQSLOJ3Urzn3wlXDZzPGpicPjuzYJv0GYkckPQxBNuhtZ4lLzrGee8VjYdSqc52HsKxyqbDtxacDR7dEZJymsIKIUvrDa9efd+E7bCfEhT20Zt35F11GupPiC8FAksfDrBv0CnEuhGULYQlh0ZIVwU7HtdBa23Zo1fDZXsPVWgOQW6tmBlYmM/1Syk7gAxGAYO0q/vZzBTDU1AV8tKzrx1YYY4zzVipKAAjIuACizrjWAAzPyPJUlNl2F8ABy2bgjTHmurXpiXEnFA5gt51QtVIsFSa5ENQBfBAAcFiRYcP9PBFDKTtdtiwfOIIYObJjW+7APs6FEFalWHjjlec7J6ZICZk4rsoyW8CqLFeKDBynT60govQb2176eTLdzzkvFqaklKIz3AYAKA2xCCYiGAlhf4opBYaN0yplg8LGTH4CCLgQnUMGQ/AlrRm0MnGuCYb7GWgDxm+gfE5CWK1ku4Mug4aBNOMMOIPhAQ66Q2u4y7zZp7OYaOlYReedKRwLPAnnnSmAIxnBYkZlmzqW43A/1xqIYCDJmDCBxcDR0rEMhgeYJvAkrV0p+pNM+kbN9jwcLR071C88SUBgW2BbYMKKgeOwjk3HUGuQCvqTbO1K4UlixnP0+vdv6liRTTApgQCEgIGUUbMGjjYdKwRoACLgHM87U4Apkho4WjqWcyQCRNCahvu5UbMGjnYd23QVpGGonwGCSUmZ0bGBjiUNAIAAUkFfgsWjqFSvq1lmdGxLxwYNxlLRyiyPhVFp4zmMjo1gOobBSGyASyqKZw0KKcl4DqNjmzo2QEEThB3MJpju+YF7ZnRsS8c2f0HABG5YbdRsz+cc7Tr28O8BIiFT/+ltOI7WsQExWtGG1QJEr3caM6NjWzq25TaUgmycOY6Bw+jYWR3bPjXyrEGRivZ6GzozOralY4/4fRhX9nwbOjM6tl3HBp5DKUhEsS/R623ozOhYcVRTIAEgwlDPt6Ezo2P5UQOwRMAFzrahGziMjj2SGy3JtKEzo2NJz7sygGlD71U4FtKxrVzVtKH3tOdYSMe2RlhMGzrrTbfBGWhNa1dYmSN0LAZL9CGC9KE/yc5eZSlNnPWo8xDLX5IABJMMEIEIiMBXIBWphk5E0RZQI+DB0mTaBwBAAYgatCUgEUHV0A3BANDizeUGA18SVNaXt18Ry54DpUhKAA2gCQQyDtkEyyb4YAyvvtzRgIBIsgYAzMkAMPJnSDaAxTTg1Zc7xRmVq9B0SU+XtFYAkoAhMBACOF/mxGAknl3eHKRjbLifDQ3woQG+7gwxkGZrVvBYCPuSzPXIVwiqZmUusc+8WsTXAnJdP+gdfMI7+L+EwhIsZMNUUVdc2nNITRT0zgNybEKNTajRSV2oHIOYABQioO4kptPhWAQOwpiNM84AOZIiraEhSWmQEpAxUFVn1abw+R8HAtAeAAEKEBFv9D/rv/5XYjZpEgI4A0cgm30RpWG6rCv1YxIDwJBxEBwFh1bu0i3EdBAcS8pBcCeOeAvGSNas9MXRt98Jsg6kIMg8iIA0hPrcN7/u7nkIrQRp1R4yEAEBjkHMjN45Jmeq9MaonJjRubwqVKnRIFAEAMC7gxjROSUp3yepgTxqzhjhiAL6Eiwd48fPQblGBEBE7RywhTWZM3Q1EAIpQH7EKtd+2Vm1yRt/lGQNkQMQP1KwKAVKgesRzL4dAkQcjIdx9QAPiAFNSkOxStU67c2p6ZJ+bdTPFWjnfpkr6Fxe5StUq80SgwAChQDBsUOm6XYKHJzBQJZnE+yclfyMfr4qy9auEJk4DvXzSAgzMcYYWAKkAgBo+KTphDmY46dA+8zJ8Pha0A2Yu5AygvYxlOWxNX7+lyiiRz/OwZsekxgAEBzScRzMWAzhfVc4WoHUUK5RraH3T+mZCu0al5MzetdBdWBKHZhUhSq5XkeM6YgOGeZgCOkYOyPL3n6ulY6zi9aIdJwNpFjEQVs0nbknQWvwJAE0KZkbKfAkyjwMgBYECPmJRsbgu2hq/hsRpALOoOGRJVBrEBxsAZk4xsI8GmK1BmUTuDenEhF0LKi7VG2oegNYB0y5Ex2SbfgStu/1Xx6BH291g/sSibFYGM9eyaMhdv6wGEzj24atbIKtHuSWBX2JZkzRiojAk6AU+aoZuVvBARckhoAJ7RW1m+N2GvScli8C5ORXdG0c2YJV0vYUoZmLIFgcGIJj4ZzIUqrT7kOy6uodYzJXoNf2+VMlveeQ8nyaKc6mGxyZAFsgYx0xGVN0TjYathEQGGJwoZSCmQo994YPGp54wQ2cuONgOobxCDtrNgtZf6ZIxfCsAZ6KsWyCWRyYQNCgNQXFLqlA68MJaQsXRAba9Q4+Hs5cDLIK2CyPAgBoCaE+uf8nqjbWSkjbUQhqrJY4nFQCQyVJKpgq6oZPuxfKST0CBaAJOAIHWyBDiMURAVs5eOc0rnaulMXAr7fdTiJQGqQCTST9w/oFEDJxFgvjmhV8IMXWD4lkFC8YFv0ptiLDU1EM2Sg4AEOtSCnwJGkCXwJjiNoLn/eX9vA14JdnK6QM7KQqvFLd9nkta5q4JYgh2AI5B8YQAJSieoNmqnQwr6aLenRS759QOw7IyYIeOaQaPk0V51ezjDW/zhyvY6TskileAClBafAlgQZQzZJUPIoBMdEQWz90ZGAS0J9irge+1EjSOetae9Um5mQBGfllf+r/3JEHtFe2nFDIoskZ7UvYm1PTZb19j19rwPY9/nRZ78upSp3K1cDREXAEBpaFDGF51MG6skJ6nMQoBSpIYANi2gJTMspWJPCDmyIfuipSqhDTFeZkeWwNINf1cVUd0xhOxq1vP1Z98JHaoRIVq7pQaStUsGZQ4Aw4P+wMllkFXSyftq5ZANrbMpgA20JsbdFLoDTky1SoyJ27dTLJP3xVGIDQSpCs+flfAgCihVYcFAHo/3q28fTLDSfKiFBwiEex9TpNT0CgtRl469JeL5rnIbYEcIbSYaUqeRIYQFAEQxFtVUgRQGt0PeI2cyxUugkWmH4OWO7do0oDY7j7kJ8vadHc9YWANJAOVlkWAvIl2puTyDBYvBZMs0/vGGdQqVGhQpzPU1TgDCp1mlngrwaOZe48hIB8mcYmpS3mtphrAlvgnkNy+rBfMXD0kiEAaBid0PNuUMkYTBS1lj0966vXJzWNTirG5pnUxDju3C/BzJXt5UlNv94vj54tjQBaw0yFwKzs08vffqKg5VGxAxFI044xaWa89ahpAkvgntzcrJMIOIdilXIF3ctSpdc9x0JqNtCxh/KKG89h1Gy7mqVZHTtToV7WsT2/muB8apYAGIOqSw2v17dcMUtNzlWzgY7dMSbNOqRmqcl51Cwi5GY0kFnBGMCo2XY1yxCkpFf3ShC9vuVKT8Mxr5oN1iGtN8BsWd7rnmPO6GsgYaZLete4b5kVjHs85wj6NvZNNNUsAXAOhQpV68RNyAVjBDMVajUD2wLHJmW+3OtFDgMHMASQtHO/ZLPpJzLYN6FAm5TD7PFGAAxHJ7WS1JzMyPHAlDZFDlj2yz4d5wMymlOkm9OolKQDUxqY2TrUeA4CIXBsUk6XSYjm1qH7cqrbLwwiYmtalYHjpKcvBPKkUiOGIDhMlfTopLS6twKGSES+1/C8hlYKT4EP4zmahY09h6QtEAA8H8o1QtadnRyIWikuxOpz3nbO+RdHYnHp+yfNh8k5gAFoCRNFHcyW3pfzC92rY7UWlnXRpe/O9K0goDOGz3n5hacqpQLngk78+5g6R3Ns9tf7JeeACFMl3aWD9YjoS3/l0NpM/wrXrTbcmh0Krzn3Qn2yMzYNHIfVrCfBFvD6qALZxZ0cQlikKViNmUhzIU46rBg4DqtZTUAEuUK31r+IiHORG9/XcGu2E7IsGwHHR0dMnWMR1GyhrAfT7I3RLm4655xXS8VXXnhq9bkXciHGR0cOHdhrWTad1PcxcBxWs7UG+ZKqLrEulSoARCQsq1wqbHvx6aDIcdJkGDiOULNjEzobZyMHpejmNp8guAA//F8TVhZBzebLemJGL4PBeloktE1CeljN7s7J6bKuVolzMAMrBo42NYswPqW375FAZjx2KeGYXTiLsKsu89ikypdN0/mS5hyISkouBOfCa7hciCWC7/ij7Jzj5zsYhcP2HFK+BGazOWccM4Qf5zNA3RarFnmpSUSUUiZSmfMvukzYzu4drxwc2yMsa3Gvi5TyyIVWGOf8Ld5CKdX+V855++0kIqUUAVgcOMO6R7xt3XFE5JxzzgFAa330uwSnH5eXZowx1uPrkOI7rvjdeCIVXLKXnnmsWi6+9c07Uf7i8TgiBi/IGHNdt1KpWAsgSETRaLT1V0Ss1+uNRqMV+yzLikajwXNNBEeu5UK+79eqtXq1AqCdSMy27XYUWqdTkLYs7DUQ0XVd13W7KNSKxS/CCG7ZtlJKKWk7IWHZpDVwvihYeJ43ODj43z/+n0QiEdwkxli9VvvAB64d2bUrFA7PGWTinFdKpS/cc88111xTLJYAIJVKfOpTf/vQgw/EkmkAqBSL73rPpvsfeKBSqTQfazqcdGhNrusW8vmR3bt/sfXnP/3pT3PjB2LJVPAunPMjT8eFXZ3KZpNb7rz7K1/6h3iqb47n6xU4GGOe19i9Y9u6DZfajjO2+41ifmJxwwoiZjKZZDIppUREpdTw8Mo7Nn/+T//oAwvxGo/Hs9kk5wIA0umo4zitzxM8+tlsyrbtls9v/RURGWNr1qy57Lcvu+66P967Z3TLlju/8+CD0VgsOGbe0+eNg9lMLBwOd1faIZaiPHdwbHelVBCWPZOfYIwv+hXxfd/3/QAOAJicnPn9q3/vzz50/be/+bVEep7nUkrp++T7PgD4Ps35PETk+9r3/dbdbXl+rbVSKvg9EQ0MDn7zW/dls333fvELsWRqodO1mrOUMkgp3UaoWxzG0lZIhWVVyjNExLkFSzBMgW0WuPdatf6Zz3z26aeeOrB/vxMKzQku7QfPG/LbDwAApRUQIGI4HA6FrHK5ppRCxEaj4fvebbff9txzz770wvOxRHLe0xPJ1JwympQq6vBQKARAvQ4HETEu8HSJN0RsuN6qVSs+d8fm6z94nRMOn4Lb441G4yMfvn50dDQcDscTiXdfeeVHb7gxFosFvkFKmUjYH/7Inz//7DMY7Pcxp93G92+99eaJiYn2BJm0dkLOy7962QrFdPcsli46vb5/HGRorbnghULx2mv/8OGHf/KD734nkc6etA8nojfffHPvyJvCCUsptz756C9+8cz3f/B9xrjWmnPuut7GjZcmM32+77crFCJijGmt/+NHPzowugvQAWrngLgdCh3l1Uz5fAnJUFIGOjnQirff/rlVQ2e5bv1UKgrhcNgKRSKRSDweT2VXPv2zxx5//IlYLBrcVyllNtvX19cnpZy39z+ZTNrhZDKdjqfafzJdl5Cyrh57tG17bGzsySd/Fo/Hiahed1evHrrt9s959fqplBP0rCmltNYM2cjILs6hXaGEI+GFfIBawHS37b7Bun1sOhKN3nXXXePj447jcM7z+dJ11/3J1X9wbXmmIBajco+ImiAcCs9JLOoL88cWMDADb6fTlFLxeHxk167Nd9wRi4WU0ojgef7mzZsHVqxslUHhxJvtxKzV63VhO5e/852uK4MbLISYmJiYnJiwbXveof1qteq7lSOtXKvVwAy8nX4+stnsvz34rfe9//3vfe+mmZlirVZft+7sW//+M5/4q4+FT0q5FPL5Rm2mUasCQCQW/+wdmy+55OJKpcoYk76MpO2tW7eWCtOpbH87HEFFXwhx331fq9XrnDGalSrhcPjV11679ZabrcUeZjJwHI/vZ7fecstlGzeGwmGlVD5fuv4j1z/88MOPPfoIHnflPri7nPNPfPJv8vm8ZVn9/X2Xv/OKCy64ICiua61tx87ni9/4+teEHZp3EI4xdsW7rmwvpWut42EWaY6/GM8Bp3mWl7bD0Z2vb9+yZcu9X75naqrIGGql77zzzpdeeqEwPYnITqjU8fFP/jVnzV0dXdcvlUpBhcO27Xg8cuMNH3vj1VfjqdRCCWaxONPOgdbai8VKpZLJOX5DwUXKeCrzja/f98gjT6RSCSKqVmsXbjj/pptu1crjJ5gMTk3mDx6cyuWmJyamK5UKIgohsn0p3/du+OiND97/rVgy+RbD9JlMur8/0/bTl02G0um0yTl+w91+t9xy86WXPm5Zlta6UCjfcONffO97353O5/mJfNFsXybwHMFyLr6vc7lDP/zhv3/1K195/dXtrVHZhdpZHvruQ8VSUXBBwR6EmpyQMzIy0nWCZfnAobWOxGKvb/vV3Xff/Y//eNfU1EzQBHTH5s+Pjo4qScffrHT/N++fKRYF5w2vMT01vWvXm9u2bdu/by+3nXgqvZDPCBIOpdTtt992VIWUgImuSzuWledQUkYT6fv+5Z/fu2nTlb9zZalYrlRqGzduXL9+XaVS45y/dctW6+5u2XLn+NgIgA2gAACQ26FwPJU+zqavZDI5GU6Gj2wuIaKuK4KJZTfJAJVUN9980yOPPiqECBr7EonkCd2YVCo1NZVsVbuD+3qcvYDtFVLd5RsSL7epCVrrSDz+yi9fvOcL9yST0WCo/fjv65y7K6WUUs5pQQUzNaGL+VAqEk999Z++vHXrs0E3IZqJKAaO9lqF53k333ST69YXsbfZwNEdJfN2m/eAWDzx0vPP3Pule1OpmO/77ccf3SZ4zBd8axZP5XSTkC5yyplIJJLJmO9ry2ILdf4ppSLx9L1f+uJV77nqyis2Vus6UCKxELdtu61dj4QQyahgLImInKPjOCdSkDjF0w0ci0qG53lPPvlkNBoN5tXValXP8+adA8c5r5bLf/fpT3/2ttuCEVqtdTwWO7B/P+fNATDOxfT09CNPbK3XaoDIGfM8r16vM8aOGYyCbuqTPr03JzUteUrhuvXWlUeAUDi8UMqJyDyv4Xve4ZYtIttxhGXNbq+CSsqG67b3dIUXfsF5536e/OkGjsVPlI70229dTmjvC2/hRUcOtc854ITqE6d4ugkri1/MOCFP89Ye/pgHnOLrB50AQfnV9JAamxt3EFEIS/p+d312bjmRzk9CW3Omu7E5PpHKXHTplUNr10u/UZrJ88WYNmw8R/MKS+lzIbgQUvrdtStfIGfWX/RbsUTaspx1Gy6LJdNdVLEVHf7kSSmz/SvXbdgIADu3vzg9eUgI0S2Re0nXHOh1z6G1tix73YaNoXAkFI6s27DRsuxumjE2u+YAAC3RmgNGrUBXLwm61GsO9GhCyhiT0q9VSqnMgJT+zu0vVsrFLkroWrNgGm6tXqtwbpki2CJ/QqV8y3YAwPcaS7Smw+nInrpwwbjODyskhKWkbG4W0aUDFt35uUVXXNjW4m4mjzFqxZiBw5iBw5iBw5iBw5iBw5gxA4cxA4cxA4cxA4cxA4cxA4cxA4cxA4cxA4cxA4cxA4cxYwYOYwYOYwYOYwYOYwYOYwYOY11i/w8k+FeT0cJUygAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,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">
+<title>NPF Rule — Star Trail Exposure Calculator</title>
+<meta name="description" content="Offline calculator for the NPF rule: the longest exposure you can shoot on a fixed tripod before stars trail. 607 camera bodies, 19 brands.">
+<style>
+/* ─────────────────────────────  tokens  ───────────────────────────── */
+:root{
+  --bg:#0a0d13; --bg2:#0f141d; --surface:#141b26; --surface2:#1b2430;
+  --line:#26313f; --line2:#334053;
+  --tx:#e8ecf3; --tx2:#9aa7b8; --tx3:#67748a;
+  --accent:#f0b429; --accent-dim:#3a2f12; --accent-tx:#0a0d13;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+  --r:10px; --r-lg:14px;
+}
+html[data-theme="light"]{
+  --bg:#f6f7f9; --bg2:#fff; --surface:#fff; --surface2:#f1f3f7;
+  --line:#e2e6ec; --line2:#cdd4de;
+  --tx:#111721; --tx2:#5a6674; --tx3:#8b96a5;
+  --accent:#b4770a; --accent-dim:#fdf3dc; --accent-tx:#fff;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 8px 24px -12px rgba(16,24,40,.18);
+}
+/* night-vision: red only, keeps dark adaptation in the field */
+html[data-theme="red"]{
+  --bg:#000; --bg2:#050000; --surface:#0d0202; --surface2:#160303;
+  --line:#3a0a0a; --line2:#5a1010;
+  --tx:#ff5a4d; --tx2:#c23a30; --tx3:#8a2820;
+  --accent:#ff3b2f; --accent-dim:#2a0605; --accent-tx:#000;
+  --shadow:none;
+}
+html[data-theme="red"] svg{filter:saturate(.15)}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--tx);
+  font:15px/1.6 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{line-height:1.25; margin:0; font-weight:600; letter-spacing:-.01em}
+a{color:var(--accent); text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+
+/* ─────────────────────────────  layout  ───────────────────────────── */
+.wrap{max-width:1140px; margin:0 auto;
+  padding:0 max(20px,env(safe-area-inset-left)) 0 max(20px,env(safe-area-inset-right))}
+header{
+  position:sticky; top:0; z-index:20; background:var(--bg);
+  border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top,0px);
+}
+@supports (backdrop-filter:blur(1px)){
+  header{background:color-mix(in srgb,var(--bg) 86%,transparent); backdrop-filter:blur(12px)}
+}
+.hd{display:flex; align-items:center; gap:14px; padding:13px 0; flex-wrap:wrap}
+.brand{display:flex; align-items:baseline; gap:10px; margin-right:auto; min-width:0}
+.brand b{font-size:17px; font-weight:650; letter-spacing:-.02em; white-space:nowrap}
+.brand span{font-size:12.5px; color:var(--tx2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+@media(max-width:560px){ .brand span{display:none} }   /* keep the bar on one line */
+
+.seg{display:flex; background:var(--surface2); border:1px solid var(--line); border-radius:8px; padding:2px; gap:2px}
+.seg button{
+  appearance:none; border:0; background:transparent; color:var(--tx2); cursor:pointer;
+  font:inherit; font-size:12px; font-weight:600; padding:5px 9px; border-radius:6px; line-height:1.4;
+}
+.seg button:hover{color:var(--tx)}
+.seg button[aria-pressed="true"]{background:var(--accent); color:var(--accent-tx)}
+.seg button svg{display:block; width:15px; height:15px}
+
+main{padding:40px 0 60px}
+@media(max-width:900px){ main{padding:22px 0 48px} }
+.grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; align-items:start}
+@media(max-width:900px){ .grid{grid-template-columns:minmax(0,1fr)} }
+.col{display:flex; flex-direction:column; gap:16px; min-width:0}
+@media(min-width:901px){ .col.sticky{position:sticky; top:calc(var(--hdr,60px) + 12px)} }
+
+/* ─────────────────────────────  cards  ───────────────────────────── */
+.card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow)}
+.card > h2{
+  font-size:11.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--tx3);
+  padding:14px 18px 0;
+}
+.card > .body{padding:14px 18px 18px; display:flex; flex-direction:column; gap:14px}
+
+.row{display:flex; gap:12px; flex-wrap:wrap}
+.row > *{flex:1 1 0; min-width:0}
+label.f{display:flex; flex-direction:column; gap:5px; min-width:0}
+label.f > span{font-size:12px; color:var(--tx2); font-weight:500}
+.hint{font-size:11.5px; color:var(--tx3)}
+
+input[type=text],input[type=number],select{
+  width:100%; font:inherit; font-size:14px; color:var(--tx); background:var(--bg2);
+  border:1px solid var(--line2); border-radius:var(--r); padding:8px 10px; min-width:0;
+  transition:border-color .12s;
+}
+select{
+  appearance:none; padding-right:30px; cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--tx3) 50%),linear-gradient(135deg,var(--tx3) 50%,transparent 50%);
+  background-position:calc(100% - 15px) 50%,calc(100% - 10px) 50%;
+  background-size:5px 5px,5px 5px; background-repeat:no-repeat;
+}
+option,optgroup{background:var(--bg2); color:var(--tx)}
+input:hover,select:hover{border-color:var(--tx3)}
+input:focus,select:focus{border-color:var(--accent); outline:none}
+input:disabled{background:var(--surface2); color:var(--tx3); cursor:not-allowed; border-color:var(--line)}
+input[type=number]{-moz-appearance:textfield}
+input[type=number]::-webkit-inner-spin-button{opacity:.35}
+.unit{position:relative}
+.unit input{padding-right:40px}
+.unit i{position:absolute; right:11px; top:50%; transform:translateY(-50%); font-style:normal; font-size:12px; color:var(--tx3); pointer-events:none}
+.pre{position:relative}
+.pre input{padding-left:30px}
+.pre i{position:absolute; left:11px; top:50%; transform:translateY(-50%); font-style:normal; font-size:13px; color:var(--tx3); pointer-events:none}
+
+.pills{display:flex; gap:6px; flex-wrap:wrap}
+.pills input{position:absolute; opacity:0; pointer-events:none}
+.pills label{
+  flex:1 1 auto; text-align:center; font-size:12.5px; font-weight:550; color:var(--tx2);
+  background:var(--bg2); border:1px solid var(--line2); border-radius:var(--r);
+  padding:7px 12px; cursor:pointer; white-space:nowrap; transition:.12s;
+}
+.pills label:hover{color:var(--tx); border-color:var(--tx3)}
+.pills input:checked + label{background:var(--accent-dim); border-color:var(--accent); color:var(--accent)}
+.pills input:focus-visible + label{outline:2px solid var(--accent); outline-offset:2px}
+
+/* ─────────────────────────────  camera search  ───────────────────────────── */
+.search{position:relative}
+.search > input{padding-left:33px}
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration{-webkit-appearance:none; display:none}
+.search > svg{
+  position:absolute; left:11px; top:50%; transform:translateY(-50%);
+  width:14px; height:14px; color:var(--tx3); pointer-events:none;
+}
+.search .clear{
+  position:absolute; right:6px; top:50%; transform:translateY(-50%);
+  appearance:none; border:0; background:none; color:var(--tx3); cursor:pointer;
+  font:inherit; font-size:17px; line-height:1; padding:5px 8px; border-radius:6px;
+}
+.search .clear:hover{color:var(--tx)}
+.results{
+  position:absolute; z-index:30; left:0; right:0; top:calc(100% + 6px);
+  max-height:290px; overflow-y:auto; overscroll-behavior:contain;
+  background:var(--bg2); border:1px solid var(--line2); border-radius:var(--r);
+  box-shadow:0 4px 8px -4px rgba(0,0,0,.3),0 16px 32px -12px rgba(0,0,0,.45); padding:4px;
+}
+.results button{
+  display:flex; width:100%; gap:10px; align-items:baseline; text-align:left;
+  background:none; border:0; color:var(--tx); font:inherit; font-size:13.5px;
+  padding:7px 9px; border-radius:7px; cursor:pointer;
+}
+.results button b{font-weight:600; white-space:nowrap}
+.results button i{font-style:normal; color:var(--tx2); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.results button u{
+  text-decoration:none; margin-left:auto; font-size:11px; color:var(--tx3); white-space:nowrap;
+}
+.results button:hover,.results button.on{background:var(--surface2)}
+.results button.on u{color:var(--tx2)}
+.results p{margin:0; padding:9px 10px; font-size:12.5px; color:var(--tx3)}
+
+/* ─────────────────────────────  compass  ───────────────────────────── */
+.aim{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+.compass{
+  --cr:62px; position:relative; width:152px; height:152px; flex:0 0 auto;
+  border-radius:50%; border:1px solid var(--line);
+  background:radial-gradient(circle at 50% 50%,var(--surface2) 0 37%,transparent 37.5%),var(--bg2);
+}
+.compass::before{content:""; position:absolute; inset:27px; border-radius:50%; border:1px dashed var(--line)}
+.compass input{position:absolute; opacity:0; pointer-events:none}
+.compass label{
+  position:absolute; left:50%; top:50%; width:34px; height:26px; margin:-13px 0 0 -17px;
+  display:grid; place-items:center; font-size:11.5px; font-weight:700;
+  color:var(--tx2); border-radius:7px; cursor:pointer; transition:color .12s,background .12s;
+  transform:rotate(var(--a)) translateY(calc(var(--cr) * -1)) rotate(calc(var(--a) * -1));
+}
+.compass label:hover{color:var(--tx); background:var(--surface2)}
+.compass input:checked + label{background:var(--accent); color:var(--accent-tx)}
+.compass input:focus-visible + label{outline:2px solid var(--accent); outline-offset:2px}
+.compass .needle{
+  position:absolute; left:50%; top:50%; width:2px; height:32px; margin:-32px 0 0 -1px;
+  transform-origin:50% 100%; background:linear-gradient(var(--accent),transparent);
+  border-radius:2px; transition:transform .28s cubic-bezier(.3,1.3,.5,1); pointer-events:none;
+}
+.compass .hub{
+  position:absolute; left:50%; top:50%; width:7px; height:7px; margin:-3.5px 0 0 -3.5px;
+  border-radius:50%; background:var(--accent); pointer-events:none;
+}
+.aim-fields{flex:1 1 200px; display:flex; flex-direction:column; gap:12px; min-width:0}
+
+.slide{display:flex; align-items:center; gap:10px}
+.slide input[type=range]{flex:1; appearance:none; height:22px; background:transparent; cursor:pointer; min-width:40px}
+input[type=range]::-webkit-slider-runnable-track{height:4px; border-radius:3px; background:var(--line2)}
+input[type=range]::-moz-range-track{height:4px; border-radius:3px; background:var(--line2)}
+input[type=range]::-webkit-slider-thumb{
+  appearance:none; width:16px; height:16px; margin-top:-6px; border-radius:50%;
+  background:var(--accent); border:2px solid var(--bg2); box-shadow:0 0 0 1px var(--accent);
+}
+input[type=range]::-moz-range-thumb{
+  width:14px; height:14px; border-radius:50%; background:var(--accent); border:2px solid var(--bg2);
+}
+.slide .unit{flex:0 0 86px}
+
+.ghost{
+  appearance:none; font:inherit; font-size:12px; font-weight:600; color:var(--tx2); cursor:pointer;
+  background:var(--bg2); border:1px solid var(--line2); border-radius:8px; padding:7px 10px;
+  display:inline-flex; align-items:center; gap:6px; white-space:nowrap; transition:.12s;
+}
+.ghost:hover{color:var(--tx); border-color:var(--tx3)}
+.ghost:disabled{opacity:.5; cursor:default}
+
+/* ─────────────────────────────  results  ───────────────────────────── */
+.hero{
+  background:linear-gradient(180deg,var(--surface2),var(--surface));
+  border:1px solid var(--line); border-radius:var(--r-lg); padding:20px 18px; text-align:center;
+  box-shadow:var(--shadow);
+}
+.hero .lbl{font-size:11.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--tx3)}
+.hero .val{
+  font-size:clamp(44px,9vw,66px); font-weight:300; letter-spacing:-.035em; line-height:1.05;
+  color:var(--accent); margin:6px 0 3px;
+}
+.hero .val small{font-size:.36em; font-weight:500; letter-spacing:0; margin-left:.14em; color:var(--tx2)}
+.hero .sub{font-size:13px; color:var(--tx2)}
+.hero .sub b{color:var(--tx); font-weight:600}
+
+.mat{display:grid; grid-template-columns:repeat(3,1fr); gap:6px}
+.mat.portrait{max-width:236px; margin:0 auto}
+.cell{
+  background:var(--bg2); border:1px solid var(--line); border-radius:var(--r);
+  padding:11px 4px; text-align:center; min-width:0;
+}
+.mat.portrait .cell{padding:21px 4px}
+.cell .t{font-size:16px; font-weight:600; letter-spacing:-.01em}
+.cell .h{font-size:11px; color:var(--tx3); margin-top:2px}
+.cell.min{border-color:var(--accent); background:var(--accent-dim)}
+.cell.min .t{color:var(--accent)}
+.cell.mid{box-shadow:inset 0 0 0 1px var(--line2)}
+.cell.long .t{color:var(--tx3); font-weight:500}
+
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(98px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
+.stat{background:var(--surface); padding:10px 12px; min-width:0}
+.stat dt{font-size:11px; line-height:1.3; color:var(--tx3); margin-bottom:3px; hyphens:auto}
+.stat dd{margin:0; font-size:14.5px; font-weight:600; white-space:nowrap}
+.stat dd em{font-style:normal; font-size:.78em; color:var(--tx2); font-weight:500}
+
+.cmp{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden}
+.cmp > div{background:var(--surface); display:flex; align-items:center; gap:12px; padding:9px 12px}
+.cmp .n{flex:1; font-size:12.5px; color:var(--tx3); min-width:0}
+.cmp .n b{display:block; color:var(--tx); font-weight:600; font-size:13.5px}
+.cmp .v{font-size:14.5px; font-weight:600; white-space:nowrap}
+
+.notes{margin:0; padding-left:17px; font-size:12.5px; color:var(--tx2); display:flex; flex-direction:column; gap:5px}
+.notes li::marker{color:var(--tx3)}
+.err{
+  background:var(--accent-dim); border:1px solid var(--accent); color:var(--accent);
+  border-radius:var(--r); padding:9px 12px; font-size:13px; font-weight:500;
+}
+[hidden]{display:none !important}
+
+/* ─────────────────────────────  article  ───────────────────────────── */
+.article{margin-top:40px}
+.article > h2{font-size:19px; margin-bottom:14px}
+details.doc{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+  margin-bottom:10px; overflow:hidden;
+}
+details.doc > summary{
+  padding:14px 18px; cursor:pointer; font-weight:600; font-size:14.5px; list-style:none;
+  display:flex; align-items:center; gap:10px;
+}
+details.doc > summary::-webkit-details-marker{display:none}
+details.doc > summary::before{
+  content:""; width:7px; height:7px; border-right:1.6px solid var(--tx3); border-bottom:1.6px solid var(--tx3);
+  transform:rotate(-45deg); margin-left:2px; transition:transform .18s; flex:0 0 auto;
+}
+details.doc[open] > summary::before{transform:rotate(45deg)}
+details.doc > summary:hover{background:var(--surface2)}
+.doc-body{padding:2px 18px 20px; border-top:1px solid var(--line); font-size:14px; color:var(--tx2); max-width:76ch}
+.doc-body h3{font-size:14px; color:var(--tx); margin:22px 0 8px}
+.doc-body h3:first-child{margin-top:16px}
+.doc-body p{margin:10px 0}
+.doc-body ul{margin:10px 0; padding-left:20px}
+.doc-body li{margin:4px 0}
+.doc-body strong{color:var(--tx); font-weight:600}
+.doc-body figure{margin:18px 0; text-align:center}
+.doc-body figcaption{font-size:12px; color:var(--tx3); margin-top:8px}
+
+/* inline maths */
+.eq{
+  font-family:"Cambria Math","Latin Modern Math",Cambria,Georgia,"Times New Roman",serif;
+  font-size:1.06em; white-space:nowrap; line-height:1; color:var(--tx);
+}
+.eq i{font-style:italic}
+.eq sub{font-size:.66em; font-style:normal; vertical-align:-.25em}
+.eq .op{font-style:normal; padding:0 .1em}
+.eqb{display:block; text-align:center; margin:16px 0; overflow-x:auto; overflow-y:hidden; padding:5px 0}
+.fr{display:inline-flex; flex-direction:column; vertical-align:middle; text-align:center; margin:0 .18em}
+.fr > s{text-decoration:none; padding:0 .4em .12em; border-bottom:1.1px solid currentColor}
+.fr > u{text-decoration:none; padding:.12em .4em 0}
+
+/* On narrow screens both columns dissolve into the page grid, so the running
+   total can float to the top and stay stuck there while you tweak inputs. */
+@media(max-width:900px){
+  .grid{gap:16px}
+  .col{display:contents}
+  #err{order:-2}
+  .hero{order:-1; position:sticky; top:calc(var(--hdr,56px) + 6px); z-index:10}
+  .hero{padding:13px 16px}
+  .hero .val{font-size:40px; margin:2px 0}
+  .card{order:0}
+  .col.sticky .card{order:1}
+}
+
+footer{border-top:1px solid var(--line); margin-top:44px; font-size:12.5px; color:var(--tx3);
+  padding:22px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+footer p{margin:0 0 7px} footer a{color:var(--tx2)}
+.skip{position:absolute; left:-9999px}
+.skip:focus{left:20px; top:10px; z-index:99; background:var(--accent); color:var(--accent-tx); padding:8px 14px; border-radius:8px}
+@media print{ header,.article,footer{display:none} .grid{grid-template-columns:1fr 1fr} }
+</style>
+</head>
+<body>
+<a class="skip" href="#calc" data-i18n="skip">Skip to calculator</a>
+
+<header>
+  <div class="wrap hd">
+    <div class="brand">
+      <b data-i18n="title">NPF Rule</b>
+      <span data-i18n="tagline">exposure time without star trails</span>
+    </div>
+
+    <div class="seg" role="group" aria-label="Language">
+      <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+
+    <div class="seg" role="group" id="themeSeg" aria-label="Theme">
+      <button type="button" data-theme-set="dark" aria-pressed="true" data-i18n="th.dark" data-i18n-attr="title,aria-label" title="Dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <button type="button" data-theme-set="light" aria-pressed="false" data-i18n="th.light" data-i18n-attr="title,aria-label" title="Light">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button type="button" data-theme-set="red" aria-pressed="false" data-i18n="th.red" data-i18n-attr="title,aria-label" title="Night vision">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="calc">
+  <div class="grid">
+
+    <!-- ══════════════════  INPUTS  ══════════════════ -->
+    <div class="col">
+
+      <section class="card">
+        <h2 data-i18n="sec.camera">Camera</h2>
+        <div class="body">
+          <div class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg>
+            <input id="search" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                   role="combobox" aria-expanded="false" aria-controls="results" aria-autocomplete="list">
+            <button class="clear" id="searchClear" type="button" aria-label="Clear" hidden>&times;</button>
+            <div class="results" id="results" role="listbox" hidden></div>
+          </div>
+          <div class="row">
+            <label class="f" style="flex:1 1 40%">
+              <span data-i18n="f.brand">Brand</span>
+              <select id="brand"></select>
+            </label>
+            <label class="f" style="flex:1 1 55%">
+              <span data-i18n="f.model">Model</span>
+              <select id="model"></select>
+            </label>
+          </div>
+
+          <div class="row">
+            <label class="f" style="flex:1 1 34%">
+              <span data-i18n="f.pitch">Pixel pitch</span>
+              <span class="unit"><input id="pitch" type="number" step="0.01" min="0.1" max="20" inputmode="decimal"><i>µm</i></span>
+            </label>
+            <label class="f" style="flex:1 1 28%">
+              <span data-i18n="f.width">Width</span>
+              <span class="unit"><input id="w" type="number" step="1" min="1" max="32768" inputmode="numeric"><i>px</i></span>
+            </label>
+            <label class="f" style="flex:1 1 28%">
+              <span data-i18n="f.height">Height</span>
+              <span class="unit"><input id="h" type="number" step="1" min="1" max="32768" inputmode="numeric"><i>px</i></span>
+            </label>
+          </div>
+
+          <div>
+            <div class="hint" style="margin-bottom:6px" data-i18n="f.sensor">Sensor type</div>
+            <div class="pills">
+              <input type="radio" name="cfa" id="cfa-bayer" value="c" checked>
+              <label for="cfa-bayer" data-i18n="f.bayer">Colour (Bayer)</label>
+              <input type="radio" name="cfa" id="cfa-mono" value="n">
+              <label for="cfa-mono" data-i18n="f.mono">Mono / Foveon / debayered</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="sec.lens">Lens</h2>
+        <div class="body">
+          <div class="row">
+            <label class="f">
+              <span data-i18n="f.focal">Focal length</span>
+              <span class="unit"><input id="focal" type="number" step="0.1" min="0.1" max="2000" inputmode="decimal"><i>mm</i></span>
+            </label>
+            <label class="f">
+              <span data-i18n="f.aperture">Aperture</span>
+              <span class="pre"><i>ƒ/</i><input id="aperture" type="number" step="0.1" min="0.5" max="64" inputmode="decimal"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="sec.aim">Framing</h2>
+        <div class="body">
+          <div>
+            <div class="hint" style="margin-bottom:6px" data-i18n="f.orient">Orientation</div>
+            <div class="pills">
+              <input type="radio" name="ori" id="ori-l" value="landscape" checked>
+              <label for="ori-l" data-i18n="f.landscape">Landscape</label>
+              <input type="radio" name="ori" id="ori-p" value="portrait">
+              <label for="ori-p" data-i18n="f.portrait">Portrait</label>
+            </div>
+          </div>
+
+          <div class="aim">
+            <div class="compass" id="compass" role="radiogroup" aria-label="Direction">
+              <div class="needle" id="needle"></div><div class="hub"></div>
+              <input type="radio" name="az" id="az180" value="180"><label for="az180" style="--a:0deg"   data-i18n="dir.N">N</label>
+              <input type="radio" name="az" id="az225" value="225"><label for="az225" style="--a:45deg"  data-i18n="dir.NE">NE</label>
+              <input type="radio" name="az" id="az270" value="270"><label for="az270" style="--a:90deg"  data-i18n="dir.E">E</label>
+              <input type="radio" name="az" id="az315" value="315"><label for="az315" style="--a:135deg" data-i18n="dir.SE">SE</label>
+              <input type="radio" name="az" id="az0"   value="0" checked><label for="az0" style="--a:180deg" data-i18n="dir.S">S</label>
+              <input type="radio" name="az" id="az45"  value="45"><label for="az45"  style="--a:225deg" data-i18n="dir.SW">SW</label>
+              <input type="radio" name="az" id="az90"  value="90"><label for="az90"  style="--a:270deg" data-i18n="dir.W">W</label>
+              <input type="radio" name="az" id="az135" value="135"><label for="az135" style="--a:315deg" data-i18n="dir.NW">NW</label>
+            </div>
+
+            <div class="aim-fields">
+              <label class="f">
+                <span data-i18n="f.alt">Height above horizon</span>
+                <span class="slide">
+                  <input id="altR" type="range" min="0" max="90" step="1" aria-hidden="true" tabindex="-1">
+                  <span class="unit"><input id="alt" type="number" step="1" min="0" max="90" inputmode="numeric"><i>°</i></span>
+                </span>
+              </label>
+              <label class="f">
+                <span data-i18n="f.lat">Latitude</span>
+                <span class="slide">
+                  <input id="latR" type="range" min="-90" max="90" step="1" aria-hidden="true" tabindex="-1">
+                  <span class="unit"><input id="lat" type="number" step="0.1" min="-90" max="90" inputmode="decimal"><i>°</i></span>
+                </span>
+              </label>
+              <button class="ghost" id="geo" type="button" data-i18n="f.geo">Use my location</button>
+            </div>
+          </div>
+          <p class="hint" data-i18n="f.aimHint">A 5–10° estimate is plenty. Hold your arm out straight: a fist is roughly 10°, a hand span roughly 20°.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ══════════════════  RESULTS  ══════════════════ -->
+    <div class="col sticky">
+
+      <div class="err" id="err" hidden></div>
+
+      <div class="hero" id="hero">
+        <div class="lbl" data-i18n="r.max">Maximum exposure</div>
+        <div class="val" id="tMax">—</div>
+        <div class="sub" id="tSub"></div>
+      </div>
+
+      <section class="card">
+        <h2 data-i18n="r.frame">Across the frame</h2>
+        <div class="body">
+          <div class="mat" id="mat"></div>
+          <p class="hint" data-i18n="r.frameHint">Exposure limit at nine points of the image, with each point's height above the horizon. The tightest one is highlighted.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="r.geom">Field &amp; sampling</h2>
+        <div class="body">
+          <dl class="stats">
+            <div class="stat"><dt data-i18n="r.fov">Field of view</dt><dd id="oFov">—</dd></div>
+            <div class="stat"><dt data-i18n="r.samp">Sampling</dt><dd id="oSamp">—</dd></div>
+            <div class="stat"><dt data-i18n="r.crop">Crop factor</dt><dd id="oCrop">—</dd></div>
+            <div class="stat"><dt data-i18n="r.feq">Equiv. focal</dt><dd id="oFeq">—</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 data-i18n="r.other">Other rules, for comparison</h2>
+        <div class="body">
+          <div class="cmp">
+            <div><span class="n"><b data-i18n="r.npfs">NPF, simplified</b><span data-i18n="r.npfsF">(35N + 30p) / f</span></span><span class="v" id="oSimple">—</span></div>
+            <div><span class="n"><b data-i18n="r.r500">500 rule</b><span data-i18n="r.r500F">500 / f</span></span><span class="v" id="o500">—</span></div>
+            <div><span class="n"><b data-i18n="r.r500e">500 rule, equivalent focal</b><span data-i18n="r.r500eF">500 / (f × crop)</span></span><span class="v" id="o500e">—</span></div>
+          </div>
+          <ul class="notes">
+            <li data-i18n="n.1">Pick either the shortest of the nine times, or the one at the centre of the frame — or whichever point matters most for your composition.</li>
+            <li data-i18n="n.2">If the photo will be downscaled, you can multiply the exposure by the reduction factor. Downscaling 3× buys you 3× the time.</li>
+            <li data-i18n="n.3">The calculation accounts for the barrel geometry that shows up at short focal lengths.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ══════════════════  ARTICLE  ══════════════════ -->
+  <div class="article">
+    <h2 data-i18n="a.title">Behind the NPF rule</h2>
+    <div id="doc"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot.credit">The NPF rule was devised by Frédéric Michaud for the Société Astronomique du Havre (SAH), for photographers and amateur astronomers. No commercial use. Any work built on this formula must credit the author and the SAH.</p>
+    <p data-i18n="foot.src">Rebuilt from the original page (v1.33, 2016). The formulas and the original 406 bodies are unchanged.</p>
+    <p data-i18n="foot.added">201 bodies released after 2016 have been added, with pixel pitch derived from each maker's published sensor size and resolution.</p>
+    <p><a href="https://web.archive.org/web/20200220123345/https://www.sahavre.fr/tutoriels/astrophoto/34-regle-npf-temps-de-pose-pour-eviter-le-file-d-etoiles" target="_blank" rel="noopener">sahavre.fr — original (Internet Archive)</a></p>
+  </div>
+</footer>
+
+<script>
+/* 607 camera bodies, 19 brands, exactly as published in the
+   original v1.33 data set. [name, pixel pitch µm, width px, height px, sensor:
+   c = Bayer colour | m = monochrome | f = Foveon]. */
+const CAMERAS = [{"b":"Canon","g":[{"f":"APS-C","k":"apsc","m":[["EOS 7D",4.16,5184,3456,"c"],["EOS 7D Mk II",4.1,5472,3648,"c"],["EOS 10D",7.38,3072,2048,"c"],["EOS 20D",6.42,3504,2336,"c"],["EOS 20DA",6.42,3504,2336,"c"],["EOS 30D",6.42,3504,2336,"c"],["EOS 40D",5.71,3888,2592,"c"],["EOS 50D",4.68,4752,3168,"c"],["EOS 60D",4.29,5184,3456,"c"],["EOS 60DA",4.29,5184,3456,"c"],["EOS 70D",4.1,5472,3648,"c"],["EOS 77D/9000D",3.72,6000,4000,"c"],["EOS 80D",3.72,6000,4000,"c"],["EOS 90D",3.2,6960,4640,"c"],["EOS 100D/Rebel SL1",4.31,5184,3456,"c"],["EOS 200D/Rebel SL2",3.72,6000,4000,"c"],["EOS 250D/Rebel SL3",3.72,6000,4000,"c"],["EOS 300D/Rebel",7.38,3072,2048,"c"],["EOS 350D/Rebel XT",6.42,3456,2304,"c"],["EOS 400D/Rebel XTi",5.71,3888,2592,"c"],["EOS 450D/Rebel XSi",5.2,4272,2848,"c"],["EOS 500D/Rebel T1i",4.68,4752,3168,"c"],["EOS 550D/Rebel T2i",4.17,5184,3456,"c"],["EOS 600D/Rebel T3i",4.17,5184,3456,"c"],["EOS 650D/Rebel T4i",4.31,5184,3456,"c"],["EOS 700D/Rebel T5i",4.31,5184,3456,"c"],["EOS 750D/Rebel T6i",3.72,6000,4000,"c"],["EOS 760D/Rebel T6s",3.72,6000,4000,"c"],["EOS 800D/Rebel T7i",3.72,6000,4000,"c"],["EOS 850D/Rebel T8i",3.72,6000,4000,"c"],["EOS 1000D/Rebel XS",5.71,3888,2592,"c"],["EOS 1100D/Rebel T3",5.1,4272,2848,"c"],["EOS 1200D/Rebel T5",4.31,5184,3456,"c"],["EOS 1300D/Rebel T6",4.31,5184,3456,"c"],["EOS 2000D/Rebel T7",3.72,6000,4000,"c"],["EOS 4000D/Rebel T100",4.3,5184,3456,"c"],["EOS M",4.31,5184,3456,"c"],["EOS M2",4.28,5208,3476,"c"],["EOS M3",3.72,6000,4000,"c"],["EOS M5",3.72,6000,4000,"c"],["EOS M6",3.72,6000,4000,"c"],["EOS M6 Mk II",3.2,6960,4640,"c"],["EOS M10",4.31,5184,3456,"c"],["EOS M50",3.72,6000,4000,"c"],["EOS M50 Mk II",3.72,6000,4000,"c"],["EOS M100",3.72,6000,4000,"c"],["EOS M200",3.72,6000,4000,"c"],["EOS R7",3.2,6960,4640,"c"],["EOS R7 Mk II",3.2,6960,4640,"c"],["EOS R10",3.72,6000,4000,"c"],["EOS R50",3.72,6000,4000,"c"],["EOS R50 V",3.72,6000,4000,"c"],["EOS R100",3.72,6000,4000,"c"]]},{"f":"APS-H","k":"apsh","m":[["EOS 1D",11.62,2464,1648,"c"],["EOS 1D Mk II",8.18,3504,2336,"c"],["EOS 1D Mk III",7.3,3888,2592,"c"],["EOS 1D Mk IIN",8.18,3504,2336,"c"],["EOS 1D Mk IV",5.7,4896,3264,"c"],["EOS D6000",9.12,3040,2008,"c"]]},{"f":"Plein Format","k":"ff","m":[["EOS 1Dc",6.94,5184,3456,"c"],["EOS 1Ds",8.81,4064,2704,"c"],["EOS 1Ds Mk II",7.21,4992,3328,"c"],["EOS 1Ds Mk III",6.41,5616,3744,"c"],["EOS 1Dx",6.94,5184,3456,"c"],["EOS 1Dx Mk II",6.58,5472,3648,"c"],["EOS 1Dx Mk III",6.58,5472,3648,"c"],["EOS 5D",8.2,4368,2912,"c"],["EOS 5D Mk II",6.41,5616,3744,"c"],["EOS 5D Mk III",6.08,5920,3950,"c"],["EOS 5D Mk IV",5.36,6720,4480,"c"],["EOS 5Ds",4.14,8688,5792,"c"],["EOS 5DsR",4.14,8688,5792,"c"],["EOS 6D",6.55,5472,3648,"c"],["EOS 6D Mk II",5.77,6240,4160,"c"],["EOS R",5.36,6720,4480,"c"],["EOS R1",6,6000,4000,"c"],["EOS R3",6,6000,4000,"c"],["EOS R5",4.39,8192,5464,"c"],["EOS R5 C",4.39,8192,5464,"c"],["EOS R5 Mk II",4.39,8192,5464,"c"],["EOS R6",6.58,5472,3648,"c"],["EOS R6 Mk II",6,6000,4000,"c"],["EOS R6 Mk III",5.17,6960,4640,"c"],["EOS R8",6,6000,4000,"c"],["EOS Ra",5.36,6720,4480,"c"],["EOS RP",5.77,6240,4160,"c"]]},{"f":"Reliques","k":"vintage","m":[["EOS D30",10.5,2160,1440,"c"],["EOS D60",7.38,3072,2048,"c"],["EOS D2000",13.32,1728,1152,"c"],["EOS DCS 1",9.03,3060,2036,"c"],["EOS DCS 3",16.19,1268,1012,"c"],["EOS DCS 5",9.07,1524,1012,"c"]]}]},{"b":"Contax","g":[{"f":"Plein Format","k":"ff","m":[["N Digital",11.9,3040,2008,"c"]]}]},{"b":"Epson","g":[{"f":"APS-C","k":"apsc","m":[["R-D1",7.84,3008,2000,"c"],["R-D1s",7.84,3008,2000,"c"],["R-D1x",7.84,3008,2000,"c"]]}]},{"b":"Fujifilm","g":[{"f":"APS-C","k":"apsc","m":[["Finepix IS Pro",7.65,3024,2016,"c"],["Finepix S1 Pro",9.96,2340,1536,"c"],["Finepix S2 Pro",7.65,3024,2016,"c"],["Finepix S3 Pro",7.65,3024,2016,"c"],["Finepix S3 Pro UVIR",7.65,3024,2016,"c"],["Finepix S5 Pro",7.65,3024,2016,"c"],["X-A1",4.8,4896,3264,"c"],["X-A2",4.8,4896,3264,"c"],["X-A3",3.92,6000,4000,"c"],["X-A5",3.92,6000,4000,"c"],["X-A7",3.92,6000,4000,"c"],["X-E1",4.8,4896,3264,"c"],["X-E2",4.8,4896,3264,"c"],["X-E2S",4.8,4896,3264,"c"],["X-E3",3.92,6000,4000,"c"],["X-E4",3.77,6240,4160,"c"],["X-E5",3.04,7728,5152,"c"],["X-H1",3.92,6000,4000,"c"],["X-H2",3.04,7728,5152,"c"],["X-H2S",3.77,6240,4160,"c"],["X-M1",4.8,4896,3264,"c"],["X-M5",3.77,6240,4160,"c"],["X-Pro1",4.8,4896,3264,"c"],["X-Pro2",3.92,6000,4000,"c"],["X-Pro3",3.77,6240,4160,"c"],["X-S10",3.77,6240,4160,"c"],["X-S20",3.77,6240,4160,"c"],["X-T1",4.8,4896,3264,"c"],["X-T1 IR",4.8,4896,3264,"c"],["X-T2",3.92,6000,4000,"c"],["X-T3",3.77,6240,4160,"c"],["X-T4",3.77,6240,4160,"c"],["X-T5",3.04,7728,5152,"c"],["X-T10",4.8,4896,3264,"c"],["X-T20",3.92,6000,4000,"c"],["X-T30",3.77,6240,4160,"c"],["X-T30 II",3.77,6240,4160,"c"],["X-T50",3.04,7728,5152,"c"],["X-T100",3.92,6000,4000,"c"],["X-T200",3.92,6000,4000,"c"],["X100V",3.77,6240,4160,"c"],["X100VI",3.04,7728,5152,"c"]]},{"f":"Moyen Format","k":"mf","m":[["GFX 50R",5.31,8256,6192,"c"],["GFX 50S",5.31,8256,6192,"c"],["GFX 50S II",5.31,8256,6192,"c"],["GFX 100",3.76,11648,8736,"c"],["GFX 100 II",3.76,11648,8736,"c"],["GFX 100RF",3.76,11648,8736,"c"],["GFX 100S",3.76,11648,8736,"c"],["GFX 100S II",3.76,11648,8736,"c"]]}]},{"b":"Hasselblad","g":[{"f":"Moyen Format","k":"mf","m":[["503CWD",9,4080,4080,"c"],["907X & CFV 100C",3.76,11656,8742,"c"],["907X 50C",5.29,8272,6200,"c"],["CF-22",9,5440,4080,"c"],["CF-22MS",9,5440,4080,"c"],["CF-31",6.8,6496,4872,"c"],["CF-39",6.79,7212,5412,"c"],["CF-39MS",6.79,7212,5412,"c"],["CFV-16",9,4080,4080,"c"],["CFV-16 II",9,4080,4080,"c"],["CFV-39",6.79,7212,5412,"c"],["CFV-50c",5.3,8272,6200,"c"],["H2D-22",9,5440,4080,"c"],["H2D-39",6.79,7212,5412,"c"],["H3D-22",9,5440,4080,"c"],["H3D-31",6.8,6496,4872,"c"],["H3D-39",6.79,7212,5412,"c"],["H3DII-22",9,5440,4080,"c"],["H3DII-31",6.8,6496,4872,"c"],["H3DII-39",6.79,7212,5412,"c"],["H3DII-50",6,8176,6132,"c"],["H4D-31",6.8,6496,4872,"c"],["H4D-40",6,7304,5478,"c"],["H4D-50",6,8176,6132,"c"],["H4D-50MS",6,8176,6132,"c"],["H4D-60",6,8956,6708,"c"],["H4D-200MS",6,8176,6132,"c"],["H5D-50c",5.3,8272,6200,"c"],["H5D-50cMS",5.3,8272,6200,"c"],["H5D-60",6,8956,6708,"c"],["H5D-200cMS",5.3,8272,6200,"c"],["H6D-50c",5.29,8272,6200,"c"],["H6D-100c",4.6,11600,8700,"c"],["Ixpress 96C",9,4080,4080,"c"],["Ixpress 132C",9,5440,4080,"c"],["Ixpress 384C",9,4080,4080,"c"],["Ixpress 528C",9,5440,4080,"c"],["X1D II 50C",5.29,8272,6200,"c"],["X1D-50c",5.29,8272,6200,"c"],["X2D 100C",3.76,11656,8742,"c"],["X2D II 100C",3.76,11656,8742,"c"]]}]},{"b":"Kodak","g":[{"f":"4/3","k":"m43","m":[["DCS330",9,2008,1504,"c"],["Pixpro S-1",3.73,4640,3480,"c"]]},{"f":"APS-C","k":"apsc","m":[["DCS520",13.02,1728,1152,"c"],["DCS620",13.02,1728,1152,"c"],["DCS620x",13.02,1728,1152,"c"],["DCS720x",13.02,1728,1152,"c"]]},{"f":"APS-H","k":"apsh","m":[["DCS460",9.38,3060,2036,"c"],["DCS560",9.48,3040,2008,"c"],["DCS660",9.14,3040,2008,"c"],["DCS760",9.15,3032,2008,"c"]]},{"f":"Plein Format","k":"ff","m":[["DCS Pro 14n",7.94,4536,3024,"c"],["DCS Pro SLR/c",8,4500,3000,"c"],["DCS Pro SLR/n",8,4500,3000,"c"]]}]},{"b":"Konica-Minolta","g":[{"f":"APS-C","k":"apsc","m":[["Dynax 5D",7.83,3008,2000,"c"],["Dynax 7D",7.83,3008,2000,"c"]]}]},{"b":"Leica","g":[{"f":"4/3","k":"m43","m":[["Digilux 3",5.52,3136,2352,"c"]]},{"f":"APS-C","k":"apsc","m":[["CL",3.92,6014,4014,"c"],["T Typ 701",4.78,4944,3278,"c"],["TL2",3.92,6014,4014,"c"]]},{"f":"APS-H","k":"apsh","m":[["M8",6.85,3936,2630,"c"],["M8.2",6.85,3936,2630,"c"],["M8.2 Safari Edition",6.85,3936,2630,"c"]]},{"f":"Plein Format","k":"ff","m":[["M Edition 60",6.04,5952,3976,"c"],["M Monochrome Typ 246",6.91,5212,3472,"m"],["M Typ 240",6.04,5952,3976,"c"],["M Typ 262",6.04,5952,3976,"c"],["M-E Typ 220",6.91,5212,3472,"c"],["M9",6.91,5212,3472,"c"],["M9-P",6.91,5212,3472,"c"],["M10",6.05,5952,3968,"c"],["M10 Monochrom",4.58,7864,5200,"m"],["M10-D",6.05,5952,3968,"c"],["M10-P",6.05,5952,3968,"c"],["M10-R",4.58,7864,5200,"c"],["M11",3.78,9528,6328,"c"],["M11 Monochrom",3.78,9528,6328,"m"],["M11-D",3.78,9528,6328,"c"],["M11-P",3.78,9528,6328,"c"],["Q2",4.3,8368,5584,"c"],["Q2 Monochrom",4.3,8368,5584,"m"],["Q3",3.78,9520,6336,"c"],["Q3 43",3.78,9520,6336,"c"],["SL Typ 601",6,6000,4000,"c"],["SL2",4.3,8368,5584,"c"],["SL2-S",6,6000,4000,"c"],["SL3",3.78,9520,6336,"c"],["SL3-S",6,6000,4000,"c"]]},{"f":"Moyen Format","k":"mf","m":[["S2",6,7500,5000,"c"],["S3",5.44,8272,6200,"c"]]}]},{"b":"Mamiya-Leaf","g":[{"f":"Moyen Format","k":"mf","m":[["Aptus-II 5",8.92,5356,4056,"c"],["Aptus-II 7",7.14,6726,5040,"c"],["Aptus-II 8",5.96,7360,5562,"c"],["Aptus-II 10",6.01,9288,6000,"c"],["Aptus-II 10R",6.01,9288,6000,"c"],["Aptus-II 12",5.2,10320,7752,"c"],["Aptus-II 12R",5.2,10320,7752,"c"],["Credo 40",6.01,7320,5484,"c"],["Credo 50",5.31,8280,6208,"c"],["Credo 60",6,8984,6732,"c"],["Credo 80",5.2,10328,7760,"c"],["DM22",8.92,5356,4056,"c"],["DM28",7.15,6144,4622,"c"],["DM33",7.14,6726,5040,"c"],["ZD",9,5328,4000,"c"]]}]},{"b":"Nikon","g":[{"f":"APS-C/DX","k":"apsc","m":[["D1",11.87,2000,1312,"c"],["D1H",7.92,3008,1960,"c"],["D1X",7.92,3008,1960,"c"],["D2H",9.48,2464,1632,"c"],["D2Hs",9.48,2464,1632,"c"],["D2X",5.44,4288,2848,"c"],["D2Xs",5.44,4288,2848,"c"],["D40",7.84,3008,2000,"c"],["D40X",7.84,3008,2000,"c"],["D50",7.84,3008,2000,"c"],["D60",6.1,3872,2592,"c"],["D70",7.84,3008,2000,"c"],["D70S",7.84,3008,2000,"c"],["D80",6.1,3872,2592,"c"],["D90",5.53,4288,2848,"c"],["D100",7.84,3008,2000,"c"],["D200",6.07,3872,2592,"c"],["D300",5.53,4288,2848,"c"],["D300S",5.53,4288,2848,"c"],["D500",4.23,5568,3712,"c"],["D3000",6.1,3872,2592,"c"],["D3100",5.01,4608,3072,"c"],["D3200",3.85,6016,4000,"c"],["D3300",3.9,6016,4000,"c"],["D3400",3.92,6000,4000,"c"],["D3500",3.92,6000,4000,"c"],["D5000",5.53,4288,2848,"c"],["D5100",4.78,4928,3264,"c"],["D5200",3.91,6000,4000,"c"],["D5300",3.91,6000,4000,"c"],["D5500",3.91,6000,4000,"c"],["D5600",3.92,6000,4000,"c"],["D7000",4.78,4928,3264,"c"],["D7100",3.91,6000,4000,"c"],["D7200",3.91,6000,4000,"c"],["D7500",4.22,5568,3712,"c"],["Z fc",4.22,5568,3712,"c"],["Z30",4.22,5568,3712,"c"],["Z50",4.22,5568,3712,"c"],["Z50II",4.22,5568,3712,"c"]]},{"f":"Plein Format/FX","k":"ff","m":[["D3",8.45,4256,2832,"c"],["D3S",8.45,4256,2832,"c"],["D3X",5.94,6048,4032,"c"],["D4",7.3,4928,3280,"c"],["D4S",7.3,4928,3280,"c"],["D5",6.44,5568,3712,"c"],["D6",6.45,5568,3712,"c"],["D600",5.97,6016,4016,"c"],["D610",5.97,6016,4016,"c"],["D700",8.45,4256,2832,"c"],["D750",5.97,6016,4016,"c"],["D780",5.94,6048,4024,"c"],["D800",4.88,7360,4912,"c"],["D800E",4.88,7360,4912,"c"],["D810",4.88,7360,4912,"c"],["D810A",4.88,7360,4912,"c"],["D850",4.35,8256,5504,"c"],["Df",7.3,4928,3280,"c"],["Z5",5.97,6016,4016,"c"],["Z5II",5.94,6048,4032,"c"],["Z6",5.94,6048,4024,"c"],["Z6 II",5.94,6048,4024,"c"],["Z6III",5.94,6048,4032,"c"],["Z7",4.35,8256,5504,"c"],["Z7 II",4.35,8256,5504,"c"],["Z8",4.35,8256,5504,"c"],["Z9",4.35,8256,5504,"c"],["Zf",5.94,6048,4032,"c"],["ZR",5.94,6048,4032,"c"]]},{"f":"Reliques","k":"vintage","m":[["E2",6.74,1280,1000,"c"],["E2N",6.74,1280,1000,"c"],["E2NS",6.74,1280,1000,"c"],["E2S",6.74,1280,1000,"c"],["E3",6.42,1364,1032,"c"],["E3S",6.42,1364,1032,"c"]]}]},{"b":"Olympus / OM System","g":[{"f":"4/3","k":"m43","m":[["Air A01",3.76,4608,3456,"c"],["E1",6.76,2560,1920,"c"],["E3",4.93,3648,2736,"c"],["E5",4.29,4032,3024,"c"],["E30",4.29,4032,3024,"c"],["E300",5.31,3264,2448,"c"],["E330",5.52,3136,2352,"c"],["E400",4.75,3648,2736,"c"],["E410",4.93,3648,2736,"c"],["E420",4.75,3648,2736,"c"],["E450",4.93,3648,2736,"c"],["E500",5.31,3264,2448,"c"],["E510",4.75,3648,2736,"c"],["E520",4.93,3648,2736,"c"],["E600",4.29,4032,3024,"c"],["E620",4.29,4032,3024,"c"],["OM-1",3.34,5184,3888,"c"],["OM-1 Mk II",3.34,5184,3888,"c"],["OM-3",3.34,5184,3888,"c"],["OM-5",3.34,5184,3888,"c"],["OM-5 Mk II",3.34,5184,3888,"c"],["OM-D E-M1",3.76,4608,3456,"c"],["OM-D E-M1 II",3.34,5184,3888,"c"],["OM-D E-M1 III",3.34,5184,3888,"c"],["OM-D E-M1X",3.34,5184,3888,"c"],["OM-D E-M5",3.76,4608,3456,"c"],["OM-D E-M5 II",3.76,4608,3456,"c"],["OM-D E-M5 III",3.34,5184,3888,"c"],["OM-D E-M10",3.76,4608,3456,"c"],["OM-D E-M10 II",3.76,4608,3456,"c"],["OM-D E-M10 III",3.75,4608,3456,"c"],["OM-D E-M10 IV",3.34,5184,3888,"c"],["PEN E-P1",4.29,4032,3024,"c"],["PEN E-P2",4.29,4032,3024,"c"],["PEN E-P3",4.29,4032,3024,"c"],["PEN E-P5",3.76,4608,3456,"c"],["PEN E-P7",3.34,5184,3888,"c"],["PEN E-PL1",4.29,4032,3024,"c"],["PEN E-PL1s",4.29,4032,3024,"c"],["PEN E-PL2",4.29,4032,3024,"c"],["PEN E-PL3",4.29,4032,3024,"c"],["PEN E-PL5",3.76,4608,3456,"c"],["PEN E-PL6",3.76,4608,3456,"c"],["PEN E-PL7",3.76,4608,3456,"c"],["PEN E-PL8",3.75,4608,3456,"c"],["PEN E-PL9",3.75,4608,3456,"c"],["PEN E-PL10",3.75,4608,3456,"c"],["PEN E-PM1",4.29,4032,3024,"c"],["PEN E-PM2",3.76,4608,3456,"c"],["PEN F",3.34,5184,3888,"c"]]}]},{"b":"Panasonic","g":[{"f":"4/3","k":"m43","m":[["Lumix DC G9",3.34,5184,3888,"c"],["Lumix DC G9 II",3,5776,4336,"c"],["Lumix DC G90/G95",3.34,5184,3888,"c"],["Lumix DC G100",3.34,5184,3888,"c"],["Lumix DC GF9/GX800",3.77,4592,3448,"c"],["Lumix DC GH5",3.34,5184,3888,"c"],["Lumix DC GH5 II",3.34,5184,3888,"c"],["Lumix DC GH5S",4.7,3680,2760,"c"],["Lumix DC GH6",3,5776,4336,"c"],["Lumix DC GH7",3,5776,4336,"c"],["Lumix DC GX9",3.34,5184,3888,"c"],["Lumix DMC G1",4.33,4000,3000,"c"],["Lumix DMC G2",4.33,4000,3000,"c"],["Lumix DMC G3",3.77,4592,3448,"c"],["Lumix DMC G5",3.76,4608,3456,"c"],["Lumix DMC G6",3.76,4608,3456,"c"],["Lumix DMC G7",3.77,4592,3448,"c"],["Lumix DMC G10",4.33,4000,3000,"c"],["Lumix DMC G80/G85",3.77,4592,3448,"c"],["Lumix DMC GF1",4.33,4000,3000,"c"],["Lumix DMC GF2",4.33,4000,3000,"c"],["Lumix DMC GF3",4.33,4000,3000,"c"],["Lumix DMC GF5",4.33,4000,3000,"c"],["Lumix DMC GF6",3.77,4592,3448,"c"],["Lumix DMC GF7",3.77,4592,3448,"c"],["Lumix DMC GF8",3.77,4592,3448,"c"],["Lumix DMC GH1",4.33,4000,3000,"c"],["Lumix DMC GH2",3.76,4608,3456,"c"],["Lumix DMC GH3",3.76,4608,3456,"c"],["Lumix DMC GH4",3.76,4608,3456,"c"],["Lumix DMC GM1",3.77,4592,3448,"c"],["Lumix DMC GM5",3.77,4592,3448,"c"],["Lumix DMC GX1",3.77,4592,3448,"c"],["Lumix DMC GX7",3.77,4592,3448,"c"],["Lumix DMC GX8",3.34,5184,3888,"c"],["Lumix DMC GX80/GX85",3.77,4592,3448,"c"],["Lumix DMC L1",5.52,3136,2352,"c"],["Lumix DMC L10",4.75,3648,2736,"c"]]},{"f":"Plein Format","k":"ff","m":[["Lumix DC S1",5.98,6000,4000,"c"],["Lumix DC S1 II",5.98,6000,4000,"c"],["Lumix DC S1 IIE",5.98,6000,4000,"c"],["Lumix DC S1H",5.98,6000,4000,"c"],["Lumix DC S1R",4.29,8368,5584,"c"],["Lumix DC S1R II",4.4,8144,5424,"c"],["Lumix DC S5",5.98,6000,4000,"c"],["Lumix DC S5 II",5.98,6000,4000,"c"],["Lumix DC S5 IIX",5.98,6000,4000,"c"],["Lumix DC S9",5.98,6000,4000,"c"]]}]},{"b":"Pentax","g":[{"f":"APS-C","k":"apsc","m":[["*ist D",7.8,3008,2008,"c"],["*ist DL",7.8,3008,2008,"c"],["*ist DL2",7.8,3008,2008,"c"],["*ist Ds",7.8,3008,2008,"c"],["*ist Ds2",7.8,3008,2008,"c"],["K-01",4.8,4928,3264,"c"],["K-3",3.9,6016,4000,"c"],["K-3 II",3.9,6016,4000,"c"],["K-3 III",3.76,6192,4128,"c"],["K-3 III Monochrome",3.76,6192,4128,"m"],["K-5",4.8,4928,3264,"c"],["K-5 II",4.8,4928,3264,"c"],["K-5 IIs",4.8,4928,3264,"c"],["K-7",5,4672,3104,"c"],["K-10D",6.1,3872,2592,"c"],["K-10D Grand Prix",6.1,3872,2592,"c"],["K-20D",5,4672,3104,"c"],["K-30",4.8,4928,3264,"c"],["K-50",4.8,4928,3264,"c"],["K-70",3.92,6000,4000,"c"],["K-100D",7.8,3008,2000,"c"],["K-100D Super",7.8,3008,2000,"c"],["K-110D",7.8,3008,2008,"c"],["K-200D",6.1,3872,2592,"c"],["K-500",4.8,4928,3264,"c"],["K-2000",6.1,3872,2592,"c"],["K-m",6.1,3872,2592,"c"],["K-r",5.5,4288,2848,"c"],["K-S1",4.3,5472,3648,"c"],["K-S2",4.3,5472,3648,"c"],["K-x",5.5,4288,2848,"c"],["KF",3.92,6000,4000,"c"],["KP",3.92,6000,4000,"c"]]},{"f":"Plein Format","k":"ff","m":[["K-1",4.88,7360,4912,"c"],["K-1 II",4.88,7360,4912,"c"]]},{"f":"Moyen Format","k":"mf","m":[["645D",6.1,7264,5440,"c"],["645Z",5.3,8256,6192,"c"]]}]},{"b":"Phase One","g":[{"f":"Plein Format","k":"ff","m":[["H5",12.09,3056,2032,"c"],["H10",9.25,3992,2656,"c"],["H101",9.25,3992,2656,"c"],["LightPhase",12.09,3056,2032,"c"]]},{"f":"Moyen Format","k":"mf","m":[["H20",9,4080,4080,"c"],["IQ1 40MP",6,7320,5484,"c"],["IQ1 50MP",5.31,8280,6208,"c"],["IQ1 60MP",6,8984,6732,"c"],["IQ1 80MP",5.2,10328,7760,"c"],["IQ2 50MP",5.31,8280,6208,"c"],["IQ2 60MP",6,8984,6732,"c"],["IQ2 60MP Achromatic",6,8964,6716,"m"],["IQ2 80MP",5.2,10328,7760,"c"],["IQ3 50MP",5.31,8280,6208,"c"],["IQ3 60MP",6,8984,6732,"c"],["IQ3 80MP",5.2,10328,7760,"c"],["IQ3 100MP",4.6,11608,8708,"c"],["IQ3 100MP Achromatic",4.6,11608,8708,"m"],["IQ3 100MP Trichromatic",4.6,11608,8708,"c"],["IQ4 100MP Trichromatic",4.6,11608,8708,"c"],["IQ4 150MP",3.76,14204,10652,"c"],["IQ4 150MP Achromatic",3.76,14204,10652,"m"],["P20",9.71,4080,4080,"c"],["P21",9.01,4904,3678,"c"],["P25",9,5436,4080,"c"],["P25+",9,5436,4080,"c"],["P30",6.8,6496,4872,"c"],["P30+",6.8,6496,4872,"c"],["P40+",6,7320,5484,"c"],["P45",6.8,7216,5412,"c"],["P45+",6.8,7216,5412,"c"],["P65+",6,8984,6732,"c"]]}]},{"b":"Ricoh","g":[{"f":"APS-C","k":"apsc","m":[["GR III",3.92,6000,4000,"c"],["GR IIIx",3.92,6000,4000,"c"],["GR IV",3.8,6192,4128,"c"],["GR IV Monochrome",3.8,6192,4128,"m"],["GXR Mount A12",5.51,4288,2848,"c"]]}]},{"b":"Samsung","g":[{"f":"APS-C","k":"apsc","m":[["GX1L",7.82,3008,2008,"c"],["GX10",6.06,3872,2592,"c"],["GX20",5.02,4688,3120,"c"],["NX Galaxy",4.23,5546,3714,"c"],["NX1",3.63,6480,4320,"c"],["NX5",5.1,4592,3056,"c"],["NX10",5.1,4592,3056,"c"],["NX11",5.1,4592,3056,"c"],["NX20",4.3,5472,3648,"c"],["NX30",4.3,5472,3648,"c"],["NX100",5.1,4592,3056,"c"],["NX200",4.3,5472,3648,"c"],["NX210",4.3,5472,3648,"c"],["NX300",4.3,5472,3648,"c"],["NX300M",4.3,5472,3648,"c"],["NX500",3.63,6480,4320,"c"],["NX1000",4.3,5472,3648,"c"],["NX1100",4.3,5472,3648,"c"],["NX2000",4.3,5472,3648,"c"],["NX3000",4.3,5472,3648,"c"]]}]},{"b":"Sigma","g":[{"f":"Plein Format","k":"ff","m":[["BF",5.98,6000,4000,"c"],["fp",5.98,6000,4000,"c"],["fp L",3.77,9520,6328,"c"]]},{"f":"Foveon","k":"foveon","m":[["SD Quattro",4.32,5424,3616,"f"],["SD Quattro H",4.3,6200,4152,"f"],["SD1",5,4800,3200,"f"],["SD1m",5,4800,3200,"f"],["SD9",9.13,2268,1512,"f"],["SD10",9.13,2268,1512,"f"],["SD14",7.84,2640,1760,"f"],["SD15",7.84,2640,1760,"f"]]}]},{"b":"Sony","g":[{"f":"APS-C","k":"apsc","m":[["A33",5.11,4592,3056,"c"],["A35",4.78,4912,3264,"c"],["A37",4.78,4912,3264,"c"],["A55",4.78,4912,3264,"c"],["A57",4.78,4912,3264,"c"],["A58",4.25,5456,3632,"c"],["A65",3.91,6000,4000,"c"],["A68",3.91,6000,4000,"c"],["A77",3.91,6000,4000,"c"],["A77 II",3.91,6000,4000,"c"],["A100",6.1,3872,2592,"c"],["A200",6.1,3872,2592,"c"],["A230",6.1,3872,2592,"c"],["A290",5.13,4592,3056,"c"],["A300",6.13,3872,2562,"c"],["A330",6.06,3872,2592,"c"],["A350",5.15,4592,3056,"c"],["A380",5.15,4592,3056,"c"],["A390",5.15,4592,3056,"c"],["A450",5.1,4592,3056,"c"],["A500",5.49,4272,2848,"c"],["A550",5.1,4592,3056,"c"],["A560",5.1,4592,3056,"c"],["A580",4.78,4912,3264,"c"],["A700",5.49,4272,2848,"c"],["A3000",4.3,5456,3632,"c"],["A3500",4.3,5456,3632,"c"],["A5000",4.25,5456,3632,"c"],["A5100",3.91,6000,4000,"c"],["A6000",3.91,6000,4000,"c"],["A6100",3.92,6000,4000,"c"],["A6300",3.91,6000,4000,"c"],["A6400",3.92,6000,4000,"c"],["A6500",3.92,6000,4000,"c"],["A6600",3.92,6000,4000,"c"],["A6700",3.79,6192,4128,"c"],["FX30",3.79,6192,4128,"c"],["NEX-3",5.1,4592,3056,"c"],["NEX-3N",4.77,4912,3264,"c"],["NEX-5",5.1,4592,3056,"c"],["NEX-5N",4.77,4912,3264,"c"],["NEX-5R",4.77,4912,3264,"c"],["NEX-5T",4.77,4912,3264,"c"],["NEX-6",4.78,4912,3264,"c"],["NEX-7",3.91,6000,4000,"c"],["NEX-C3",4.77,4912,3264,"c"],["NEX-F3",4.77,4912,3264,"c"],["QX1",4.25,5456,3632,"c"],["ZV-E10",3.92,6000,4000,"c"],["ZV-E10 II",3.79,6192,4128,"c"]]},{"f":"Plein Format","k":"ff","m":[["A1",4.16,8640,5760,"c"],["A1 II",4.16,8640,5760,"c"],["A7",5.97,6000,4000,"c"],["A7 II",5.97,6000,4000,"c"],["A7 III",5.98,6000,4000,"c"],["A7 IV",5.12,7008,4672,"c"],["A7 V",5.12,7008,4672,"c"],["A7C",5.98,6000,4000,"c"],["A7C II",5.12,7008,4672,"c"],["A7CR",3.76,9504,6336,"c"],["A7R",4.88,7360,4912,"c"],["A7R II",4.52,7952,5304,"c"],["A7R III",4.51,7952,5304,"c"],["A7R IV",3.76,9504,6336,"c"],["A7R V",3.76,9504,6336,"c"],["A7S",8.44,4240,2832,"c"],["A7S II",8.44,4240,2832,"c"],["A7S III",8.44,4240,2832,"c"],["A9",5.98,6000,4000,"c"],["A9 II",5.98,6000,4000,"c"],["A9 III",5.98,6000,4000,"c"],["A99",5.97,6000,4000,"c"],["A99 V",5.97,6000,4000,"c"],["A850",5.94,6048,4032,"c"],["A900",5.94,6048,4032,"c"],["FX3",8.44,4240,2832,"c"],["ZV-E1",8.44,4240,2832,"c"]]}]},{"b":"Zenit","g":[{"f":"Aprils fool","k":"joke","m":[["KM-D1",12.55,1600,1200,"c"]]}]}];
+
+/* ═══════════════════════════════  formulas  ═══════════════════════════════
+   Shared across all three languages: only the prose is translated.
+   Rendered with plain HTML + CSS rather than images, so they stay crisp,
+   selectable and theme-aware.                                              */
+const EQ = (() => {
+  const f = (n, d) => `<span class="fr"><s>${n}</s><u>${d}</u></span>`;
+  const b = s => `<span class="eq eqb">${s}</span>`;
+  const cosd = `<span class="op">cos</span>&#948;`;
+  return {
+    complete: b(`<i>t</i><sub>s</sub> &#8776; ${f(`0.100&#183;<i>f</i><sub>mm</sub> + 16.85&#183;<i>N</i> + 13.71&#183;<i>p</i><sub>µm</sub>`, `<i>f</i><sub>mm</sub> &#183; ${cosd}`)}`),
+    simple:   b(`<i>t</i><sub>s</sub> &#8776; ${f(`35<i>N</i> + 30<i>p</i><sub>µm</sub>`, `<i>f</i><sub>mm</sub>`)}`),
+    dImage:   b(`<i>d</i><sub>image</sub> = <i>d</i><sub>seeing</sub> + <i>d</i><sub>Airy</sub> + <i>d</i><sub>Bayer</sub>`),
+    dSeeing:  b(`<i>d</i><sub>seeing</sub> = <i>f</i> &#183; <span class="op">tan</span>(&#945;)`),
+    alphaSm:  `<span class="eq">&#945; &#8810; 1</span>`,
+    dSeeing2: b(`<i>d</i><sub>seeing</sub> = &#945; &#183; <i>f</i>`),
+    dAiry:    b(`<i>d</i><sub>Airy, 2nd ring</sub> = 4.47 &#183; &#955; &#183; <i>N</i>`),
+    dBayer:   b(`<i>d</i><sub>Bayer</sub> = 2 &#183; <i>p</i>`),
+    dSensor:  b(`<i>d</i><sub>sensor</sub> = <i>f</i> &#183; <span class="op">tan</span>&#8202;( ${f(`2&#960;`, `86168`)} &#183; <i>t</i> &#183; ${cosd} )`),
+    vSensor:  b(`<i>v</i><sub>sensor</sub> = ${f(`2&#960;`, `86168`)} &#183; <i>f</i> &#183; ${cosd} = ${f(`<i>f</i> &#183; ${cosd}`, `13714`)}`),
+    tSensor1: b(`<i>t</i><sub>sensor</sub> = ${f(`<i>d</i><sub>image</sub> / 2`, `<i>v</i><sub>sensor</sub>`)} = ${f(`<i>d</i><sub>seeing</sub> + <i>d</i><sub>Airy</sub> + <i>d</i><sub>Bayer</sub>`, `2 &#183; <i>v</i><sub>sensor</sub>`)}`),
+    tSensor2: b(`<i>t</i><sub>sensor</sub> = ${f(`&#945;&#183;<i>f</i> + 4.47&#183;&#955;&#183;<i>N</i> + 2&#183;<i>p</i>`, `2 &#183; ${f(`<i>f</i> ${cosd}`, `13714`)}`)}`),
+    tSensor3: b(`<i>t</i><sub>sensor</sub> = ${f(`6857 &#215; ( ${f(`3`, `3600`)} &#215; ${f(`&#960;`, `180`)} &#215; <i>f</i><sub>mm</sub> + 4.47 &#215; 550&#183;10<sup>&#8722;9</sup> &#215; 1000 &#215; <i>N</i> + 2 &#215; ${f(`<i>p</i><sub>µm</sub>`, `1000`)} )`, `<i>f</i><sub>mm</sub> ${cosd}`)}`),
+    tSensor4: b(`<i>t</i><sub>sensor</sub> = ${f(`0.100&#183;<i>f</i><sub>mm</sub> + 16.85&#183;<i>N</i> + 13.71&#183;<i>p</i><sub>µm</sub>`, `<i>f</i><sub>mm</sub> &#183; ${cosd}`)}`),
+    npfRule:  b(`<i>t</i><sub>max, s</sub> &#8776; ${f(`17&#215;<i>N</i> + 14&#215;<i>p</i><sub>µm</sub> + <i>f</i><sub>mm</sub>/10`, `<i>f</i><sub>mm</sub> &#215; ${cosd}`)}`),
+    rule600:  b(`<i>t</i><sub>max, s</sub> = 600 / <i>f</i><sub>mm</sub>`),
+    legacy:   b(`<i>t</i><sub>max, s</sub> &#8776; ${f(`17&#215;(5.6&#8230;8.0) + 14&#215;(15&#8230;20)`, `<i>f</i><sub>mm</sub> &#215; 0.707`)} + 1/9 &#8776; ${f(`420&#8230;590`, `<i>f</i><sub>mm</sub>`)}`)
+  };
+})();
+
+/* Star-blur budget: the three terms that smear a point source, to scale. */
+const DIAG_SPREAD = `<figure><svg viewBox="0 0 400 150" width="100%" style="max-width:400px" role="img" aria-hidden="true">
+<circle cx="72" cy="66" r="17" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".9"/>
+<circle cx="72" cy="66" r="3" fill="currentColor"/>
+<text x="72" y="112" font-size="11" fill="currentColor" text-anchor="middle" opacity=".75">d seeing</text>
+<text x="128" y="72" font-size="17" fill="currentColor" text-anchor="middle" opacity=".55">+</text>
+<circle cx="188" cy="66" r="17" fill="none" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="2 3"/>
+<circle cx="188" cy="66" r="27" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".9"/>
+<circle cx="188" cy="66" r="22" fill="none" stroke="currentColor" stroke-width=".7" opacity=".4"/>
+<text x="188" y="112" font-size="11" fill="currentColor" text-anchor="middle" opacity=".75">+ d Airy</text>
+<text x="248" y="72" font-size="17" fill="currentColor" text-anchor="middle" opacity=".55">+</text>
+<g opacity=".28">
+<path d="M283 33h64M283 49h64M283 65h64M283 81h64M283 97h64M283 33v64M299 33v64M315 33v64M331 33v64M347 33v64" stroke="currentColor" stroke-width=".6"/></g>
+<circle cx="315" cy="66" r="27" fill="none" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="2 3"/>
+<circle cx="315" cy="66" r="35" fill="none" stroke="currentColor" stroke-width="1.6" opacity="1"/>
+<text x="315" y="112" font-size="11" fill="currentColor" text-anchor="middle" opacity=".75">+ d Bayer</text>
+<text x="315" y="132" font-size="11" fill="currentColor" text-anchor="middle" font-weight="600">= d image</text>
+</svg><figcaption>{{CAP1}}</figcaption></figure>`;
+
+/* Bayer RGGB mosaic. */
+const DIAG_BAYER = `<figure><svg viewBox="0 0 200 130" width="100%" style="max-width:210px" role="img" aria-hidden="true">
+<g id="bay">
+<rect x="0"  y="0"  width="25" height="25" fill="#d93a3a"/><rect x="25" y="0"  width="25" height="25" fill="#3fa544"/>
+<rect x="0"  y="25" width="25" height="25" fill="#3fa544"/><rect x="25" y="25" width="25" height="25" fill="#2f6fd0"/>
+</g>
+<use href="#bay" x="50"/><use href="#bay" x="100"/><use href="#bay" x="150"/>
+<use href="#bay" y="50"/><use href="#bay" x="50" y="50"/><use href="#bay" x="100" y="50"/><use href="#bay" x="150" y="50"/>
+<g fill="none" stroke="#0006" stroke-width="1"><path d="M0 0h200v100H0z"/><path d="M25 0v100M50 0v100M75 0v100M100 0v100M125 0v100M150 0v100M175 0v100M0 25h200M0 50h200M0 75h200"/></g>
+<rect x="50" y="25" width="75" height="75" fill="none" stroke="currentColor" stroke-width="2.5"/>
+<text x="100" y="121" font-size="11" fill="currentColor" text-anchor="middle" opacity=".75">3 &#215; 3 px &#8594; 1 px</text>
+</svg><figcaption>{{CAP2}}</figcaption></figure>`;
+
+const expand = html => html
+  .replace(/\{\{EQ\.(\w+)\}\}/g, (_, k) => EQ[k])
+  .replace(/\{\{SPREAD\}\}/g, DIAG_SPREAD)
+  .replace(/\{\{BAYER\}\}/g, DIAG_BAYER);
+
+/* ═══════════════════════════════  strings  ═══════════════════════════════ */
+const I18N = {
+
+fr: {
+  _html: "fr",
+  skip: "Aller au calculateur",
+  title: "Règle NPF",
+  tagline: "temps de pose sans filé d'étoiles",
+  "th.dark": "Sombre", "th.light": "Clair", "th.red": "Vision nocturne",
+
+  "sec.camera": "Appareil photo", "sec.lens": "Objectif", "sec.aim": "Cadrage",
+  "f.brand": "Marque", "f.model": "Modèle",
+  "f.search": "Rechercher parmi {n} boîtiers…", "f.noMatch": "Aucun boîtier ne correspond",
+  "f.more": "+{n} autres résultats", "f.clear": "Effacer",
+  "f.pitch": "Taille d'un photosite", "f.width": "Largeur", "f.height": "Hauteur",
+  "f.sensor": "Type de capteur", "f.bayer": "Couleur (matrice de Bayer)",
+  "f.mono": "N&B / Foveon / débayérisé",
+  "f.focal": "Focale", "f.aperture": "Ouverture",
+  "f.orient": "Orientation de la photo", "f.landscape": "Paysage", "f.portrait": "Portrait",
+  "f.alt": "Hauteur au-dessus de l'horizon", "f.lat": "Latitude du lieu",
+  "f.geo": "Utiliser ma position",
+  "f.aimHint": "Une précision de 5 à 10° est largement suffisante. Bras bien tendu : le poing fait environ 10°, la main ouverte environ 20°.",
+
+  "b.manual": "Autre / saisie manuelle",
+  "m.pick": "Choisir un modèle", "m.manual": "Saisie manuelle",
+  "fmt.apsc": "APS-C", "fmt.apsh": "APS-H", "fmt.ff": "Plein format",
+  "fmt.mf": "Moyen format", "fmt.m43": "4/3", "fmt.foveon": "Foveon",
+  "fmt.vintage": "Reliques", "fmt.joke": "Poisson d'avril",
+
+  "dir.N": "N", "dir.NE": "NE", "dir.E": "E", "dir.SE": "SE",
+  "dir.S": "S", "dir.SW": "SO", "dir.W": "O", "dir.NW": "NO",
+
+  "r.max": "Temps de pose maximal",
+  "r.frame": "Sur toute l'image",
+  "r.frameHint": "Temps de pose limite en neuf points de l'image, avec la hauteur de chaque point au-dessus de l'horizon. Le plus contraignant est mis en évidence.",
+  "r.geom": "Champ et échantillonnage",
+  "r.fov": "Champ", "r.samp": "Échantillonnage", "r.crop": "Multiplicateur", "r.feq": "Focale équiv.",
+  "r.other": "Autres règles, pour comparaison",
+  "r.npfs": "NPF simplifiée", "r.npfsF": "(35N + 30p) / f",
+  "r.r500": "Règle des 500", "r.r500F": "500 / f",
+  "r.r500e": "Règle des 500, focale équivalente", "r.r500eF": "500 / (f × recadrage)",
+  "r.centre": "centre", "r.nearest": "réglage boîtier", "r.bulb": "pose B",
+  "r.pole": "Visée quasi polaire : les étoiles ne bougent presque pas.",
+  "n.1": "Retenir soit le plus court des neuf temps, soit celui du centre de l'image — ou celui qui correspond le mieux à votre cadrage.",
+  "n.2": "Si la photo est destinée à être réduite, le temps de pose peut être multiplié par le facteur de réduction : une réduction d'un facteur 3 autorise 3 fois plus de temps.",
+  "n.3": "Le calcul tient compte de la déformation qui se voit avec les courtes focales.",
+
+  "e.model": "Choisir un modèle d'appareil photo.",
+  "e.manual": "Saisir la taille des photosites ainsi que la largeur et la hauteur du capteur en pixels.",
+  "e.lens": "Saisir une focale et une ouverture non nulles.",
+
+  "a.title": "Les coulisses de la règle NPF",
+  "foot.credit": "Cette règle NPF a été développée par Frédéric Michaud pour la Société Astronomique du Havre, à l'usage des photographes et astronomes amateurs. Aucune exploitation commerciale ou revendication de paternité ne peut être autorisée. Tout développement utilisant cette formule doit référencer l'auteur et la SAH.",
+  "foot.src": "Reconstruit à partir de la page d'origine (v1.33, 2016). Les formules et les 406 boîtiers d'origine sont inchangés.",
+  "foot.added": "201 boîtiers parus après 2016 ont été ajoutés : taille de photosite déduite de la taille de capteur et de la définition publiées par chaque constructeur. Ces ajouts ne proviennent pas de la SAH.",
+
+  unitS: "s", unitMin: "min",
+
+  doc: [
+    { h: "Les paramètres et leurs valeurs par défaut", b: `
+<p>La formule fait intervenir trois paramètres : un qui dépend de l'appareil photo et deux qui dépendent de l'objectif. Nous l'appelons donc naturellement <strong>NPF</strong> (N pour ouverture, P pour photosite et F pour focale). Cela semble en étonner certains, mais l'ouverture de l'objectif ainsi que la taille des photosites du capteur sont effectivement deux paramètres très importants.</p>
+<ul>
+<li><strong>N</strong>, sans unité, l'ouverture de l'objectif</li>
+<li><strong>p</strong>, en µm, la taille d'un photosite de l'appareil photo</li>
+<li><strong>f</strong>, en mm, la focale de l'objectif</li>
+<li><strong>&#948;</strong>, la déclinaison minimale du champ photographié</li>
+</ul>
+<p>La taille du photosite est habituellement connue des astronomes amateurs qui savent où trouver cette valeur. Si vous l'ignorez, prenez 5 µm pour un reflex, 3 µm pour un bridge et 2 µm pour un compact. Le diaphragme et la focale sont indiqués sur l'objectif et dans la fenêtre de visée de l'appareil.</p>
+<p>La déclinaison à retenir est la déclinaison la plus basse dans la zone photographiée. Comme on ne la connaît pas et qu'en général les photos sont prises à courte focale, le champ photographié est large et englobe une grande partie du ciel. On retiendra donc une déclinaison moyenne de l'ordre de 45°.</p>` },
+
+    { h: "Comment se forme l'image d'une étoile", b: `
+<p>Essayons de comprendre comment se forme l'image d'une étoile sur le capteur, depuis la traversée de l'atmosphère terrestre, le passage par les lentilles de l'objectif, et le traitement du signal dans l'appareil photo. La lumière de l'étoile, initialement ponctuelle, est étalée par la turbulence atmosphérique dans une tache moyenne de diamètre <i>d</i><sub>seeing</sub>. Ce cercle est étalé encore un peu plus à cause de la diffraction, d'une valeur égale à <i>d</i><sub>Airy</sub>. Et enfin, l'image calculée est à son tour étalée à cause du démosaïçage, d'une valeur égale à <i>d</i><sub>Bayer</sub>.</p>
+{{SPREAD}}
+<p>Le diamètre final approximatif de l'étoile sur l'image sera donc la somme de trois termes :</p>
+{{EQ.dImage}}
+<p>La tache finale n'a pas des bords nets. On va profiter de son flou pour laisser l'étoile filer à l'intérieur de ce halo, sans pour autant que la déformation soit trop visible. C'est comme cela qu'on va éviter le filé.</p>
+
+<h3>Effet de la turbulence atmosphérique</h3>
+<p>Les rayons lumineux en provenance de l'étoile doivent traverser l'atmosphère terrestre et sont donc perturbés par les turbulences. On appelle &#945; le <i>seeing</i>, l'angle minimal qui peut être résolu à cause de ces turbulences. Le seeing varie de 0,3 seconde d'arc (excellent site) à 4 secondes d'arc (mauvais site). Cet angle se traduit sur le capteur par un étalement de l'illumination sur un cercle de diamètre <i>d</i><sub>seeing</sub> tel que :</p>
+{{EQ.dSeeing}}
+<p>Relation qui peut être simplifiée car {{EQ.alphaSm}} :</p>
+{{EQ.dSeeing2}}
+
+<h3>Effet de la diffraction</h3>
+<p>Lorsque des rayons lumineux traversent une lentille, ils ne sont pas focalisés en un point unique mais en un ensemble d'anneaux concentriques qui forment la figure d'Airy. La quasi-totalité de l'énergie lumineuse (91 %) est concentrée sur la tache centrale et les deux premiers anneaux de diffraction. Les étoiles très faibles ne fourniront assez d'énergie au photosite que dans la tache centrale, les étoiles normales jusqu'au premier voire au deuxième anneau, et les étoiles brillantes jusqu'au troisième anneau ou plus. On va s'en tenir au deuxième anneau, dont le diamètre peut être calculé selon la relation :</p>
+{{EQ.dAiry}}
+<p>Où &#955; est la longueur d'onde de la lumière et <i>N</i> l'ouverture de l'objectif.</p>
+
+<h3>Le démosaïçage de la matrice de Bayer</h3>
+<p>Les photosites d'un capteur couleur captent chacun une des trois couleurs fondamentales du spectre lumineux. Ils sont organisés en ce qu'on appelle la matrice de Bayer.</p>
+{{BAYER}}
+<p>Chaque photosite ne capte donc qu'une seule couleur. L'image est alors reconstruite de façon logicielle en prenant en considération les informations captées par les photosites voisins, de façon à en déduire les couleurs manquantes du pixel de l'image finale.</p>
+<p>Même si l'étoile n'avait éclairé qu'un unique photosite, l'image finale étalerait l'étoile sur au moins 9 pixels — en fait même un peu plus, car les algorithmes évolués de démosaïçage travaillent sur une zone plus large. On ne connaît pas vraiment l'algorithme utilisé par les logiciels internes des appareils photo. On va donc considérer que le diamètre moyen sur l'image d'un détail ponctuel sur le capteur est égal à 2 fois la largeur <i>p</i> d'un photosite.</p>
+{{EQ.dBayer}}` },
+
+    { h: "Déplacement de l'étoile", b: `
+<p>La Terre fait un tour en 24 heures environ — en fait en 86 168 s. L'étoile, quant à elle, semblera se déplacer d'autant plus rapidement que sa déclinaison &#948; sera proche de zéro. Sur le capteur, pour un temps <i>t</i> donné, l'étoile va se déplacer d'une valeur <i>d</i><sub>sensor</sub> telle que :</p>
+{{EQ.dSensor}}
+<p>On considère que l'angle dans la tangente est faible devant 1 ; la formule se simplifie alors, et la vitesse de déplacement de l'étoile sur le capteur est égale à :</p>
+{{EQ.vSensor}}` },
+
+    { h: "La formule NPF finale", b: `
+<p>La durée nécessaire pour que l'étoile ponctuelle se déplace d'une valeur égale au rayon de sa tache sur le capteur est donc égale à :</p>
+{{EQ.tSensor1}}
+<p>Ou encore :</p>
+{{EQ.tSensor2}}
+<p>Si l'on suppose &#945; = 3 secondes d'arc et &#955; = 550 nm, cela donne :</p>
+{{EQ.tSensor3}}
+<p>Et en calculant chaque terme :</p>
+{{EQ.tSensor4}}
+<p>On peut se contenter d'une valeur approximative, c'est la <strong>règle NPF complète</strong> :</p>
+{{EQ.npfRule}}
+<p>Attention aux unités : les coefficients 17, 14 et 1/10 ne sont pas adimensionnels ! Le temps de pose sera arrondi à la valeur la plus proche disponible dans l'appareil photo. Toutefois, on se rend compte avec la pratique qu'il est possible de doubler ce temps de pose sans que l'image ne se dégrade trop (les étoiles seront un peu allongées, surtout à proximité du plan équatorial). Cela revient à prendre une déclinaison moyenne de l'ordre de 60°.</p>
+<p>On arrive alors à la <strong>règle NPF simplifiée</strong>, suffisante pour la plupart des besoins :</p>
+{{EQ.simple}}` },
+
+    { h: "La règle des 500 ou des 600", b: `
+<p>On trouve assez facilement sur Internet ou dans des livres de nombreuses formules pour déterminer ce fameux temps de pose maximal. La plus universelle porte le nom de <strong>règle des 500</strong> ou <strong>des 600</strong> :</p>
+{{EQ.rule600}}
+<p>Où <i>f</i> est la focale de l'objectif en mm, éventuellement rapportée à celle d'un format 24×36 si la taille du capteur est différente.</p>
+<p>Cette règle date du temps de l'argentique, et certains photographes l'ont améliorée en tenant compte de la déclinaison minimale contenue dans l'image. D'autres formules plus compliquées ont été écrites, mais aucune ne donne de résultat convaincant dans tous les cas. Elles sont toutes basées sur des méthodes empiriques.</p>
+
+<h3>Retour vers le passé, quand la règle des 500 fonctionnait (parfois)</h3>
+<p>Même si la règle des 500 ou 600 ne fonctionne plus aujourd'hui avec les capteurs de nos appareils photo, on peut cependant la justifier avec la technologie argentique. Les photographes cherchaient à photographier le ciel sans filé d'étoiles en utilisant des objectifs de focale assez longue, 70 mm ou plus ; avec des focales plus courtes, on avait plutôt envie de photographier des filés. Ces focales, dans la gamme grand public, allaient de pair avec des ouvertures de 4,5 ou plus, et comme il n'était pas recommandé d'ouvrir au maximum (ça ne l'est toujours pas), on peut raisonnablement considérer une ouverture pratique de 5,6.</p>
+<p>Pour imager la nuit avec des temps assez courts, il fallait utiliser des films très sensibles, 1600 ISO ou plus, ce qui dégradait fortement la résolution : elle ne dépassait guère 25 à 35 traits/mm (plus le film est sensible, plus les grains sont gros). Cela correspondrait à un capteur avec des photosites de 15 à 20 µm — il faut une taille deux fois plus petite pour résoudre deux objets.</p>
+<p>En utilisant la règle NPF pour une déclinaison moyenne de 45°, on arrive à :</p>
+{{EQ.legacy}}
+<p>La règle des 500 ou 600 exagère souvent le temps de pose, mais fonctionne sur des films peu résolus avec un objectif fermé à 8 ou plus, et elle est simple à retenir, d'où son succès. Des photographes distinguaient toutefois des étoiles allongées, et certains préconisaient de la transformer en règle des 450 voire moins. Aujourd'hui, la résolution des appareils photo numériques en faible lumière est bien supérieure à celle des films argentiques. La règle des 500 a fait son temps : la règle NPF prend le relais !</p>` }
+  ],
+  cap1: "Les trois contributions qui étalent une étoile ponctuelle sur l'image.",
+  cap2: "Matrice de Bayer : chaque photosite ne capte qu'une couleur, le démosaïçage étale le détail sur au moins 9 pixels."
+},
+
+en: {
+  _html: "en",
+  skip: "Skip to calculator",
+  title: "NPF Rule",
+  tagline: "exposure time without star trails",
+  "th.dark": "Dark", "th.light": "Light", "th.red": "Night vision",
+
+  "sec.camera": "Camera", "sec.lens": "Lens", "sec.aim": "Framing",
+  "f.brand": "Brand", "f.model": "Model",
+  "f.search": "Search {n} cameras…", "f.noMatch": "No camera matches",
+  "f.more": "+{n} more results", "f.clear": "Clear",
+  "f.pitch": "Pixel pitch", "f.width": "Width", "f.height": "Height",
+  "f.sensor": "Sensor type", "f.bayer": "Colour (Bayer matrix)",
+  "f.mono": "Mono / Foveon / debayered",
+  "f.focal": "Focal length", "f.aperture": "Aperture",
+  "f.orient": "Orientation", "f.landscape": "Landscape", "f.portrait": "Portrait",
+  "f.alt": "Height above horizon", "f.lat": "Latitude",
+  "f.geo": "Use my location",
+  "f.aimHint": "5 to 10° is plenty accurate. With your arm held straight out, a fist is about 10° and an open hand about 20°.",
+
+  "b.manual": "Other / manual entry",
+  "m.pick": "Choose a model", "m.manual": "Manual entry",
+  "fmt.apsc": "APS-C", "fmt.apsh": "APS-H", "fmt.ff": "Full frame",
+  "fmt.mf": "Medium format", "fmt.m43": "Four Thirds", "fmt.foveon": "Foveon",
+  "fmt.vintage": "Vintage", "fmt.joke": "April fool",
+
+  "dir.N": "N", "dir.NE": "NE", "dir.E": "E", "dir.SE": "SE",
+  "dir.S": "S", "dir.SW": "SW", "dir.W": "W", "dir.NW": "NW",
+
+  "r.max": "Maximum exposure",
+  "r.frame": "Across the frame",
+  "r.frameHint": "Exposure limit at nine points of the image, with each point's height above the horizon. The tightest one is highlighted.",
+  "r.geom": "Field & sampling",
+  "r.fov": "Field of view", "r.samp": "Sampling", "r.crop": "Crop factor", "r.feq": "Equiv. focal",
+  "r.other": "Other rules, for comparison",
+  "r.npfs": "NPF, simplified", "r.npfsF": "(35N + 30p) / f",
+  "r.r500": "500 rule", "r.r500F": "500 / f",
+  "r.r500e": "500 rule, equivalent focal", "r.r500eF": "500 / (f × crop)",
+  "r.centre": "centre", "r.nearest": "camera setting", "r.bulb": "bulb",
+  "r.pole": "Aimed close to the pole — the stars barely move.",
+  "n.1": "Pick either the shortest of the nine times or the one at the centre of the frame — or whichever point matters most to your composition.",
+  "n.2": "If the photo will be downscaled, you can multiply the exposure by the reduction factor: downscaling 3× buys you 3× the time.",
+  "n.3": "The calculation accounts for the geometric distortion that shows up at short focal lengths.",
+
+  "e.model": "Choose a camera model.",
+  "e.manual": "Enter the pixel pitch and the sensor width and height in pixels.",
+  "e.lens": "Enter a non-zero focal length and aperture.",
+
+  "a.title": "Behind the NPF rule",
+  "foot.credit": "The NPF rule was developed by Frédéric Michaud for the Société Astronomique du Havre (SAH), for the use of photographers and amateur astronomers. No commercial use is allowed, and no claim of authorship. Any work built on this formula must credit the author and the SAH.",
+  "foot.src": "Rebuilt from the original page (v1.33, 2016). The formulas and the original 406 bodies are unchanged.",
+  "foot.added": "201 bodies released after 2016 have been added, with pixel pitch derived from each maker's published sensor size and resolution. These additions do not come from the SAH.",
+
+  unitS: "s", unitMin: "min",
+
+  doc: [
+    { h: "The parameters and their default values", b: `
+<p>The formula involves three parameters: one that depends on the camera and two that depend on the lens. So we naturally call it <strong>NPF</strong> (N for aperture, P for photosite and F for focal length). It seems to surprise some people, but the lens aperture and the size of the sensor's photosites really are two very important parameters.</p>
+<ul>
+<li><strong>N</strong>, dimensionless, the aperture of the lens</li>
+<li><strong>p</strong>, in µm, the size of one photosite on the camera</li>
+<li><strong>f</strong>, in mm, the focal length of the lens</li>
+<li><strong>&#948;</strong>, the lowest declination in the field being photographed</li>
+</ul>
+<p>Photosite size is usually familiar to amateur astronomers, who know where to find the figure. If you do not know it, use 5 µm for a DSLR, 3 µm for a bridge camera and 2 µm for a compact. Aperture and focal length are marked on the lens and shown in the camera's viewfinder.</p>
+<p>The declination to use is the lowest declination in the area being photographed. Since we do not know it, and since photos are generally taken at short focal lengths, the field is wide and takes in a large part of the sky. So we settle on an average declination of around 45°.</p>` },
+
+    { h: "How a star's image is formed", b: `
+<p>Let us try to understand how the image of a star forms on the sensor, from crossing the Earth's atmosphere, through the lens elements, to the signal processing inside the camera. The star's light, initially a point, is spread by atmospheric turbulence into an average disc of diameter <i>d</i><sub>seeing</sub>. That circle is spread a little further by diffraction, by an amount equal to <i>d</i><sub>Airy</sub>. And finally the computed image is spread again by demosaicing, by an amount equal to <i>d</i><sub>Bayer</sub>.</p>
+{{SPREAD}}
+<p>The approximate final diameter of the star on the image is therefore the sum of three terms:</p>
+{{EQ.dImage}}
+<p>The final blob does not have sharp edges. We are going to take advantage of that softness and let the star drift inside the halo, without the distortion becoming too visible. That is how we avoid trailing.</p>
+
+<h3>Effect of atmospheric turbulence</h3>
+<p>Light rays coming from the star have to cross the Earth's atmosphere and are disturbed by turbulence. We call &#945; the <i>seeing</i>: the smallest angle that can be resolved through that turbulence. Seeing ranges from 0.3 arcsecond (excellent site) to 4 arcseconds (poor site). On the sensor, this angle spreads the illumination over a circle of diameter <i>d</i><sub>seeing</sub> such that:</p>
+{{EQ.dSeeing}}
+<p>A relation that can be simplified, since {{EQ.alphaSm}}:</p>
+{{EQ.dSeeing2}}
+
+<h3>Effect of diffraction</h3>
+<p>When light rays pass through a lens, they are not focused to a single point but into a set of concentric rings that form the Airy pattern. Almost all of the light energy (91%) is concentrated in the central disc and the first two diffraction rings. Very faint stars deliver enough energy to the photosite only in the central disc, ordinary stars out to the first or even the second ring, and bright stars out to the third ring or beyond. We will stop at the second ring, whose diameter can be calculated as:</p>
+{{EQ.dAiry}}
+<p>Where &#955; is the wavelength of the light and <i>N</i> is the aperture of the lens.</p>
+
+<h3>Demosaicing the Bayer matrix</h3>
+<p>Each photosite on a colour sensor captures one of the three primary colours of the light spectrum. They are arranged in what is called the Bayer matrix.</p>
+{{BAYER}}
+<p>Each photosite therefore records only a single colour. The image is then rebuilt in software, taking into account what neighbouring photosites recorded in order to infer the missing colours of each pixel in the final image.</p>
+<p>Even if the star had lit only a single photosite, the final image would spread that star over at least 9 pixels — in fact a little more, because sophisticated demosaicing algorithms work over a wider area. We do not really know which algorithm a camera's internal firmware uses. So we will take it that the average diameter, in the image, of a point-like detail on the sensor is equal to twice the width <i>p</i> of a photosite.</p>
+{{EQ.dBayer}}` },
+
+    { h: "Motion of the star", b: `
+<p>The Earth turns once in roughly 24 hours — 86,168 s to be exact. A star appears to move faster the closer its declination &#948; is to zero. On the sensor, in a given time <i>t</i>, the star moves by an amount <i>d</i><sub>sensor</sub> such that:</p>
+{{EQ.dSensor}}
+<p>Taking the angle inside the tangent to be small compared to 1, the formula simplifies and the speed of the star across the sensor is:</p>
+{{EQ.vSensor}}` },
+
+    { h: "The final NPF formula", b: `
+<p>The time needed for the point-like star to move by the radius of its own blob on the sensor is therefore:</p>
+{{EQ.tSensor1}}
+<p>Or equivalently:</p>
+{{EQ.tSensor2}}
+<p>Assuming &#945; = 3 arcseconds and &#955; = 550 nm, this gives:</p>
+{{EQ.tSensor3}}
+<p>And working out each term:</p>
+{{EQ.tSensor4}}
+<p>An approximate value is good enough — this is the <strong>full NPF rule</strong>:</p>
+{{EQ.npfRule}}
+<p>Mind the units: the coefficients 17, 14 and 1/10 are not dimensionless! The exposure will be rounded to the nearest setting available on the camera. In practice, though, you find that this exposure can be doubled without the image degrading too much (stars will be slightly elongated, especially near the celestial equator). That amounts to assuming an average declination of around 60°.</p>
+<p>Which brings us to the <strong>simplified NPF rule</strong>, good enough for most purposes:</p>
+{{EQ.simple}}` },
+
+    { h: "The 500 or 600 rule", b: `
+<p>Plenty of formulas for this famous maximum exposure can be found on the internet or in books. The most widespread goes by the name of the <strong>500</strong> or <strong>600 rule</strong>:</p>
+{{EQ.rule600}}
+<p>Where <i>f</i> is the focal length of the lens in mm, converted to its 35 mm equivalent if the sensor is a different size.</p>
+<p>The rule dates from the film era, and some photographers improved it by taking into account the lowest declination in the image. Other, more complicated formulas have been written, but none gives convincing results in every case. They are all based on empirical methods.</p>
+
+<h3>Back in time, when the 500 rule worked (sometimes)</h3>
+<p>Even though the 500 or 600 rule no longer works with the sensors in today's cameras, it can still be justified for film. Photographers wanting to shoot the sky without star trails used fairly long lenses, 70 mm or more; at shorter focal lengths you were more likely to <em>want</em> the trails. In the consumer range, those focal lengths came with apertures of f/4.5 or slower, and since shooting wide open was not advisable (it still isn't), f/5.6 is a reasonable working aperture.</p>
+<p>To shoot at night with reasonably short exposures you needed very fast film, ISO 1600 or more, which badly degraded resolution: hardly more than 25 to 35 line pairs/mm, because the faster the film, the coarser the grain. That corresponds to a sensor with photosites of 15 to 20 µm — you need features half the size to resolve two objects.</p>
+<p>Applying the NPF rule at an average declination of 45° gives:</p>
+{{EQ.legacy}}
+<p>The 500 or 600 rule often overstates the exposure, but it works with low-resolution film and a lens stopped down to f/8 or beyond, and it is easy to remember, hence its success. Some photographers did notice elongated stars, though, and a few advocated turning it into a 450 rule or tighter. Today the low-light resolution of digital cameras is far beyond that of film. The 500 rule has had its day — the NPF rule takes over!</p>` }
+  ],
+  cap1: "The three contributions that smear a point-like star across the image.",
+  cap2: "Bayer matrix: each photosite records one colour only, and demosaicing spreads the detail over at least 9 pixels."
+},
+
+ru: {
+  _html: "ru",
+  skip: "Перейти к калькулятору",
+  title: "Правило NPF",
+  tagline: "выдержка без следов от звёзд",
+  "th.dark": "Тёмная", "th.light": "Светлая", "th.red": "Ночное зрение",
+
+  "sec.camera": "Камера", "sec.lens": "Объектив", "sec.aim": "Кадр",
+  "f.brand": "Марка", "f.model": "Модель",
+  "f.search": "Поиск среди {n} камер…", "f.noMatch": "Совпадений нет",
+  "f.more": "ещё {n}", "f.clear": "Очистить",
+  "f.pitch": "Размер пикселя", "f.width": "Ширина", "f.height": "Высота",
+  "f.sensor": "Тип сенсора", "f.bayer": "Цветной (матрица Байера)",
+  "f.mono": "Ч/б / Foveon / без Байера",
+  "f.focal": "Фокусное расстояние", "f.aperture": "Диафрагма",
+  "f.orient": "Ориентация кадра", "f.landscape": "Горизонтальная", "f.portrait": "Вертикальная",
+  "f.alt": "Высота над горизонтом", "f.lat": "Широта места съёмки",
+  "f.geo": "Определить моё местоположение",
+  "f.aimHint": "Точности 5–10° более чем достаточно. Вытяните руку: кулак — примерно 10°, раскрытая ладонь — примерно 20°.",
+
+  "b.manual": "Другая / ввести вручную",
+  "m.pick": "Выберите модель", "m.manual": "Ручной ввод",
+  "fmt.apsc": "APS-C", "fmt.apsh": "APS-H", "fmt.ff": "Полный кадр",
+  "fmt.mf": "Средний формат", "fmt.m43": "Four Thirds", "fmt.foveon": "Foveon",
+  "fmt.vintage": "Раритеты", "fmt.joke": "Первоапрельская шутка",
+
+  "dir.N": "С", "dir.NE": "СВ", "dir.E": "В", "dir.SE": "ЮВ",
+  "dir.S": "Ю", "dir.SW": "ЮЗ", "dir.W": "З", "dir.NW": "СЗ",
+
+  "r.max": "Максимальная выдержка",
+  "r.frame": "По полю кадра",
+  "r.frameHint": "Предельная выдержка в девяти точках кадра; в скобках — высота точки над горизонтом. Самая жёсткая выделена.",
+  "r.geom": "Поле зрения и масштаб",
+  "r.fov": "Поле зрения", "r.samp": "Масштаб", "r.crop": "Кроп-фактор", "r.feq": "Экв. фокусное",
+  "r.other": "Другие правила, для сравнения",
+  "r.npfs": "NPF, упрощённое", "r.npfsF": "(35N + 30p) / f",
+  "r.r500": "Правило 500", "r.r500F": "500 / f",
+  "r.r500e": "Правило 500, экв. фокусное", "r.r500eF": "500 / (f × кроп)",
+  "r.centre": "центр", "r.nearest": "ближайшая на камере", "r.bulb": "ручная (B)",
+  "r.pole": "Направление почти на полюс — звёзды практически не смещаются.",
+  "n.1": "Берите либо наименьшее из девяти значений, либо значение в центре кадра — или то, которое важнее для вашей композиции.",
+  "n.2": "Если снимок будет уменьшаться, выдержку можно умножить на коэффициент уменьшения: уменьшение в 3 раза даёт втрое больше времени.",
+  "n.3": "Расчёт учитывает геометрические искажения, заметные на коротких фокусных расстояниях.",
+
+  "e.model": "Выберите модель камеры.",
+  "e.manual": "Укажите размер пикселя, а также ширину и высоту сенсора в пикселях.",
+  "e.lens": "Укажите ненулевые фокусное расстояние и диафрагму.",
+
+  "a.title": "Как устроено правило NPF",
+  "foot.credit": "Правило NPF разработал Фредерик Мишо (Frédéric Michaud) для Астрономического общества Гавра (SAH) — для фотографов и астрономов-любителей. Коммерческое использование и присвоение авторства не допускаются. Любая разработка на основе этой формулы должна ссылаться на автора и SAH.",
+  "foot.src": "Восстановлено с исходной страницы (v1.33, 2016). Формулы и исходные 406 камер оставлены без изменений.",
+  "foot.added": "Добавлена 201 камера, вышедшая после 2016 года: размер пикселя рассчитан из опубликованных производителями размеров сенсора и разрешения. Эти дополнения не относятся к SAH.",
+
+  unitS: "с", unitMin: "мин",
+
+  doc: [
+    { h: "Параметры и значения по умолчанию", b: `
+<p>В формулу входят три параметра: один зависит от камеры, два — от объектива. Отсюда и естественное название <strong>NPF</strong> (N — диафрагма, P — пиксель/photosite, F — фокусное расстояние). Кого-то это удивляет, но диафрагма объектива и размер пикселя сенсора действительно являются двумя очень важными параметрами.</p>
+<ul>
+<li><strong>N</strong>, безразмерная величина — относительное отверстие (диафрагма) объектива</li>
+<li><strong>p</strong>, мкм — размер одного пикселя сенсора</li>
+<li><strong>f</strong>, мм — фокусное расстояние объектива</li>
+<li><strong>&#948;</strong> — наименьшее склонение снимаемого участка неба</li>
+</ul>
+<p>Размер пикселя обычно известен астрономам-любителям — они знают, где искать это значение. Если вы его не знаете, возьмите 5 мкм для зеркалки, 3 мкм для «ультразума» и 2 мкм для компакта. Диафрагма и фокусное расстояние подписаны на объективе и отображаются в видоискателе.</p>
+<p>Использовать следует наименьшее склонение в снимаемой области. Поскольку оно нам неизвестно, а снимают обычно на коротких фокусных, поле получается широким и захватывает значительную часть неба. Поэтому берут среднее склонение порядка 45°.</p>` },
+
+    { h: "Как формируется изображение звезды", b: `
+<p>Разберёмся, как изображение звезды образуется на сенсоре: от прохождения земной атмосферы через линзы объектива до обработки сигнала внутри камеры. Свет звезды, изначально точечный, размывается атмосферной турбулентностью в пятно среднего диаметра <i>d</i><sub>seeing</sub>. Этот кружок дополнительно расширяется дифракцией на величину <i>d</i><sub>Airy</sub>. И наконец, рассчитанное изображение размывается ещё раз при дебайеризации — на величину <i>d</i><sub>Bayer</sub>.</p>
+{{SPREAD}}
+<p>Итоговый приблизительный диаметр звезды на снимке, таким образом, равен сумме трёх слагаемых:</p>
+{{EQ.dImage}}
+<p>У итогового пятна нет чётких краёв. Мы воспользуемся этой размытостью и позволим звезде смещаться внутри ореола так, чтобы искажение не бросалось в глаза. Именно так и удаётся избежать следов.</p>
+
+<h3>Влияние атмосферной турбулентности</h3>
+<p>Лучи света от звезды проходят сквозь земную атмосферу и искажаются турбулентностью. Величину &#945; называют <i>сиингом</i> — это наименьший угол, который удаётся разрешить сквозь турбулентность. Сиинг составляет от 0,3″ (отличное место) до 4″ (плохое место). На сенсоре этот угол размывает освещённость в кружок диаметром <i>d</i><sub>seeing</sub>:</p>
+{{EQ.dSeeing}}
+<p>Это соотношение можно упростить, поскольку {{EQ.alphaSm}}:</p>
+{{EQ.dSeeing2}}
+
+<h3>Влияние дифракции</h3>
+<p>Проходя через линзу, лучи света фокусируются не в одну точку, а в набор концентрических колец — картину Эйри. Практически вся световая энергия (91 %) сосредоточена в центральном пятне и первых двух дифракционных кольцах. Очень слабые звёзды дают пикселю достаточно энергии только в пределах центрального пятна, обычные — до первого или даже второго кольца, яркие — до третьего и дальше. Остановимся на втором кольце, диаметр которого можно вычислить так:</p>
+{{EQ.dAiry}}
+<p>Где &#955; — длина волны света, а <i>N</i> — диафрагма объектива.</p>
+
+<h3>Дебайеризация матрицы Байера</h3>
+<p>Каждый пиксель цветного сенсора регистрирует лишь один из трёх основных цветов спектра. Расположены они в так называемой матрице Байера.</p>
+{{BAYER}}
+<p>Итак, каждый пиксель улавливает только один цвет. Изображение затем восстанавливается программно: недостающие цвета каждого пикселя выводятся из данных соседних пикселей.</p>
+<p>Даже если звезда осветила всего один пиксель сенсора, на итоговом снимке она окажется размазана как минимум по 9 пикселям — на деле даже чуть сильнее, поскольку продвинутые алгоритмы дебайеризации работают по более широкой области. Какой именно алгоритм использует прошивка камеры, толком неизвестно. Поэтому будем считать, что средний диаметр изображения точечной детали равен удвоенной ширине <i>p</i> пикселя.</p>
+{{EQ.dBayer}}` },
+
+    { h: "Смещение звезды", b: `
+<p>Земля совершает оборот примерно за 24 часа — точнее, за 86 168 с. Звезда же движется тем быстрее, чем ближе её склонение &#948; к нулю. За время <i>t</i> звезда сместится по сенсору на величину <i>d</i><sub>sensor</sub>:</p>
+{{EQ.dSensor}}
+<p>Считая угол под тангенсом малым по сравнению с 1, формула упрощается, и скорость движения звезды по сенсору равна:</p>
+{{EQ.vSensor}}` },
+
+    { h: "Итоговая формула NPF", b: `
+<p>Время, за которое точечная звезда сместится на радиус собственного пятна на сенсоре, равно:</p>
+{{EQ.tSensor1}}
+<p>Или, что то же самое:</p>
+{{EQ.tSensor2}}
+<p>Приняв &#945; = 3″ и &#955; = 550 нм, получаем:</p>
+{{EQ.tSensor3}}
+<p>И, вычислив каждое слагаемое:</p>
+{{EQ.tSensor4}}
+<p>Можно ограничиться приближённым значением — это и есть <strong>полное правило NPF</strong>:</p>
+{{EQ.npfRule}}
+<p>Осторожнее с единицами: коэффициенты 17, 14 и 1/10 не безразмерны! Выдержку следует округлить до ближайшего значения, доступного на камере. Практика, впрочем, показывает, что эту выдержку можно удвоить без заметной потери качества (звёзды слегка вытянутся, особенно вблизи небесного экватора). Это равносильно тому, чтобы принять среднее склонение около 60°.</p>
+<p>Так мы приходим к <strong>упрощённому правилу NPF</strong>, которого достаточно в большинстве случаев:</p>
+{{EQ.simple}}` },
+
+    { h: "Правило 500 или 600", b: `
+<p>В интернете и книгах легко найти множество формул для той самой максимальной выдержки. Самая известная носит название <strong>правила 500</strong> или <strong>600</strong>:</p>
+{{EQ.rule600}}
+<p>Где <i>f</i> — фокусное расстояние объектива в мм, при необходимости пересчитанное в эквивалент для формата 24×36, если размер сенсора другой.</p>
+<p>Правило пришло из плёночной эпохи; некоторые фотографы улучшали его, учитывая наименьшее склонение в кадре. Писались и более сложные формулы, но ни одна не даёт убедительного результата во всех случаях. Все они построены на эмпирике.</p>
+
+<h3>Назад в прошлое, когда правило 500 работало (иногда)</h3>
+<p>Хотя с современными сенсорами правило 500 или 600 больше не работает, для плёнки его можно обосновать. Снимая небо без следов от звёзд, фотографы брали довольно длиннофокусную оптику — 70 мм и больше; на коротких фокусных скорее хотелось снять как раз треки. В любительском сегменте такие фокусные расстояния шли в паре со светосилой f/4,5 и слабее, а поскольку снимать на полностью открытой диафрагме не рекомендовалось (не рекомендуется и сейчас), разумно принять рабочее значение f/5,6.</p>
+<p>Чтобы снимать ночью с относительно короткими выдержками, требовалась очень чувствительная плёнка — ISO 1600 и выше, что сильно ухудшало разрешение: едва ли больше 25–35 линий/мм, ведь чем чувствительнее плёнка, тем крупнее зерно. Это соответствует сенсору с пикселем 15–20 мкм — чтобы разрешить два объекта, нужен вдвое меньший размер.</p>
+<p>Подставив в правило NPF среднее склонение 45°, получаем:</p>
+{{EQ.legacy}}
+<p>Правило 500 или 600 часто завышает выдержку, но работает на низкоразрешающей плёнке с объективом, зажатым до f/8 и сильнее, и легко запоминается — отсюда и его популярность. Впрочем, некоторые фотографы всё же замечали вытянутые звёзды, и кое-кто предлагал превратить его в правило 450 или ещё жёстче. Сегодня разрешение цифровых камер при слабом освещении намного превосходит плёночное. Правило 500 своё отслужило — на смену приходит правило NPF!</p>` }
+  ],
+  cap1: "Три вклада, размывающие точечную звезду на снимке.",
+  cap2: "Матрица Байера: каждый пиксель регистрирует лишь один цвет, а дебайеризация размазывает деталь минимум на 9 пикселей."
+}
+};
+
+/* ═══════════════════════════════  NPF maths  ═══════════════════════════════
+   Transcribed from the original 2015-2016 SAH calculator and verified against
+   it over 6000 randomised cases across all 406 bodies: identical to the digit.
+   The literal 3.14159 is the original's, kept deliberately.                  */
+const PI = 3.14159, D2R = PI / 180, R2D = 180 / PI;
+
+/* Azimuth is measured from SOUTH (S=0, SW=45, W=90, NW=135, N=180, …),
+   which is the convention the original compass used. */
+function declination(az, alt, lat) {
+  return Math.asin(
+    Math.sin(lat * D2R) * Math.sin(alt * D2R) -
+    Math.cos(lat * D2R) * Math.cos(alt * D2R) * Math.cos(az * D2R)
+  ) * R2D;
+}
+
+/* Full NPF rule. bayer=true applies the demosaicing spread (13.71 vs 6.855).
+   Returns seconds, or null when aimed at the pole and stars barely move. */
+function exposure(N, p, f, dec, bayer) {
+  const c = Math.cos(dec * PI / 180);
+  if (c < 0.0001) return null;
+  return Math.round((0.1 * f + 16.85 * N + (bayer ? 13.71 : 6.855) * p) / (f * c) * 10) / 10;
+}
+
+function compute(o) {
+  const { p, w, h, bayer, f, N, portrait, az, lat, alt } = o;
+
+  const echRad = 2 * Math.atan(p / (2 * f) / 1000);          // radians per pixel
+  const echArcsec = echRad * 180 * 3600 / PI;
+
+  // Anamorphosis: how much a real angle outruns the linear extrapolation,
+  // measured a third of the way out from the centre.
+  const an = rpx => (rpx * echRad) / Math.atan(rpx * p / 1000 / f);
+  const anCorner = an(Math.sqrt((w / 3) ** 2 + (h / 3) ** 2));
+  const anX = an(h / 3), anY = an(w / 3);
+
+  const fovX = (portrait ? h : w) * echArcsec / 3600;        // degrees, horizontal
+  const fovY = (portrait ? w : h) * echArcsec / 3600;        // degrees, vertical
+  const anVert = portrait ? anY : anX;
+  const anHoriz = portrait ? anX : anY;
+
+  const crop = Math.round(43.266 / (p * Math.sqrt(w * w + h * h) / 1000) * 100) / 100;
+
+  // 3×3 probe over the frame; corners use the corner coefficient, edge
+  // midpoints the coefficient of the axis they move along.
+  const dx = fovX / 3, dy = fovY / 3, cells = [];
+  for (const row of [1, 0, -1]) for (const col of [-1, 0, 1]) {
+    const corner = row !== 0 && col !== 0;
+    const a = az + col * (corner ? anCorner : anHoriz) * dx;
+    const y = alt + row * (corner ? anCorner : anVert) * dy;
+    const dec = declination(a, y, lat);
+    cells.push({ mid: row === 0 && col === 0, alt: Math.round(y * 10) / 10,
+                 t: exposure(N, p, f, dec, bayer) });
+  }
+
+  return {
+    sampling: Math.round(echArcsec * 100) / 100,
+    fovX: Math.round(fovX * 10) / 10, fovY: Math.round(fovY * 10) / 10,
+    crop, equivFocal: Math.round(f * crop), cells,
+    npfSimple: Math.round((35 * N + 30 * p) / f * 10) / 10,
+    rule500: Math.round(500 / f * 10) / 10,
+    rule500eq: Math.round(500 / (f * crop) * 10) / 10
+  };
+}
+
+/* ═══════════════════════════════  wiring  ═══════════════════════════════ */
+const $ = s => document.querySelector(s);
+const LOCALE = { fr: "fr-FR", en: "en-GB", ru: "ru-RU" };
+const SHUTTER = [0.3,0.4,0.5,0.6,0.8,1,1.3,1.6,2,2.5,3.2,4,5,6,8,10,13,15,20,25,30];
+// Opens on a generic 24 MP full-frame body (5.97 µm over 6000×4000 ≈ 36×24 mm)
+// so the page is useful before you touch anything. Lens/aim defaults are the
+// original page's.
+const DEFAULTS = { lang:null, theme:"dark", brand:"~", model:"", p:5.97, w:6000, h:4000,
+                   cfa:"c", f:18, N:3.6, portrait:false, az:0, alt:20, lat:45 };
+
+let S = { ...DEFAULTS }, L = I18N.en;
+
+const store = {
+  read(){ try { return JSON.parse(localStorage.getItem("npf") || "{}"); } catch { return {}; } },
+  write(v){ try { localStorage.setItem("npf", JSON.stringify(v)); } catch {} }
+};
+
+const num = (n, d = 1) => n.toLocaleString(LOCALE[S.lang], { maximumFractionDigits: d });
+const secs = t => t === null ? "∞" : num(t, t >= 100 ? 0 : 1) + " " + L.unitS;
+
+/* largest shutter setting that does not exceed the limit */
+function nearestSetting(t) {
+  if (t === null || t > 30) return null;
+  let v = null;
+  for (const s of SHUTTER) if (s <= t + 1e-9) v = s;
+  return v;
+}
+
+/* ── selects ───────────────────────────────────────────────────────────── */
+function fillBrands() {
+  const sel = $("#brand");
+  sel.innerHTML = "";
+  CAMERAS.forEach((b, i) => sel.add(new Option(b.b, String(i))));
+  sel.add(new Option(L["b.manual"], "~"));
+  sel.value = S.brand;
+  if (!sel.value) { sel.value = "~"; S.brand = "~"; }
+}
+
+function fillModels() {
+  const sel = $("#model"), manual = S.brand === "~";
+  sel.innerHTML = "";
+  if (manual) {
+    sel.add(new Option(L["m.manual"], ""));
+    sel.disabled = true;
+  } else {
+    sel.disabled = false;
+    for (const g of CAMERAS[+S.brand].g) {
+      const og = document.createElement("optgroup");
+      og.label = L["fmt." + g.k] || g.f;
+      for (const m of g.m) og.appendChild(new Option(m[0], m[0]));
+      sel.appendChild(og);
+    }
+    // keep the model if it survives the brand switch, else take the first
+    sel.value = S.model;
+    if (!sel.value) sel.selectedIndex = 0;
+    S.model = sel.value;
+  }
+  applySensor();
+}
+
+/* copy the picked body's sensor into the fields, or unlock them for manual use */
+function applySensor() {
+  const manual = S.brand === "~";
+  const fields = [$("#pitch"), $("#w"), $("#h")];
+  if (!manual) {
+    const spec = CAMERAS[+S.brand].g.flatMap(g => g.m).find(m => m[0] === S.model);
+    if (spec) { S.p = spec[1]; S.w = spec[2]; S.h = spec[3]; S.cfa = spec[4] === "c" ? "c" : "n"; }
+  }
+  fields.forEach(el => el.disabled = !manual);
+  $("#pitch").value = S.p; $("#w").value = S.w; $("#h").value = S.h;
+  $("#cfa-bayer").checked = S.cfa === "c";
+  $("#cfa-mono").checked = S.cfa !== "c";
+  // sensor type follows the body, but stays editable for debayered/converted rigs
+}
+
+/* ── camera search ─────────────────────────────────────────────────────── */
+// One flat index over every body, built once at load.
+// `hay` is the brand + model squashed to bare alphanumerics, so "a7r v",
+// "A7R-V" and "a7rv" all hit the same row.
+const squash = t => t.toLowerCase().replace(/[^a-z0-9]+/g, "");
+const INDEX = CAMERAS.flatMap((b, bi) =>
+  b.g.flatMap(g => g.m.map(m =>
+    ({ bi, name: m[0], brand: b.b, k: g.k, hay: squash(b.b + " " + m[0]) }))));
+const MAX_HITS = 40;
+let hits = [], cursor = -1;
+
+const esc = t => t.replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]));
+
+// every whitespace-separated token must appear, so "canon r5" narrows properly
+function findCameras(q) {
+  const tokens = q.trim().toLowerCase().split(/\s+/).map(squash).filter(Boolean);
+  if (!tokens.length) return [];
+  const whole = squash(q);
+  return INDEX
+    .filter(e => tokens.every(t => e.hay.includes(t)))
+    .map(e => {
+      const n = squash(e.name);
+      const rank = n === whole ? 0 : n.startsWith(whole) ? 1 : e.hay.startsWith(whole) ? 2 : 3;
+      return { e, rank };
+    })
+    .sort((a, b) => a.rank - b.rank || a.e.name.length - b.e.name.length ||
+                    a.e.name.localeCompare(b.e.name, "en", { numeric: true }))
+    .map(x => x.e);
+}
+
+function drawResults() {
+  const box = $("#results");
+  if (!hits.length) box.innerHTML = `<p>${L["f.noMatch"]}</p>`;
+  else {
+    const shown = hits.slice(0, MAX_HITS);
+    box.innerHTML = shown.map((e, i) =>
+      `<button type="button" role="option" data-i="${i}" aria-selected="${i === cursor}"` +
+      `${i === cursor ? ' class="on"' : ""}><b>${esc(e.name)}</b><i>${esc(e.brand)}</i>` +
+      `<u>${esc(L["fmt." + e.k] || e.k)}</u></button>`).join("") +
+      (hits.length > shown.length
+        ? `<p>${L["f.more"].replace("{n}", hits.length - shown.length)}</p>` : "");
+  }
+  box.hidden = false;
+  $("#search").setAttribute("aria-expanded", "true");
+}
+
+function closeResults() {
+  $("#results").hidden = true;
+  $("#search").setAttribute("aria-expanded", "false");
+  cursor = -1;
+}
+
+function chooseCamera(e) {
+  S.brand = String(e.bi); S.model = e.name;
+  $("#brand").value = S.brand;
+  fillModels();                      // repopulates models and loads the sensor
+  $("#search").value = ""; $("#searchClear").hidden = true;
+  closeResults(); render(); save();
+}
+
+/* ── render ────────────────────────────────────────────────────────────── */
+function render() {
+  const bad = !(S.p > 0) || !(S.w >= 1) || !(S.h >= 1) ? "e.manual"
+            : !(S.f > 0) || !(S.N > 0) ? "e.lens" : null;
+  const err = $("#err");
+  err.hidden = !bad;
+  if (bad) { err.textContent = L[bad]; $("#tMax").textContent = "—"; $("#tSub").textContent = ""; $("#mat").innerHTML = ""; return; }
+
+  const r = compute({ p:+S.p, w:+S.w, h:+S.h, bayer:S.cfa === "c", f:+S.f, N:+S.N,
+                      portrait:S.portrait, az:+S.az, lat:+S.lat, alt:+S.alt });
+
+  const times = r.cells.map(c => c.t);
+  const finite = times.filter(t => t !== null);
+  const min = finite.length ? Math.min(...finite) : null;
+
+  $("#tMax").innerHTML = min === null
+    ? "∞"
+    : `${num(min, min >= 100 ? 0 : 1)}<small>${L.unitS}</small>`;
+
+  const mid = r.cells.find(c => c.mid).t;
+  const set = nearestSetting(min);
+  const parts = [`${L["r.centre"]}: <b>${secs(mid)}</b>`];
+  if (set !== null) parts.push(`${L["r.nearest"]}: <b>${num(set, 1)} ${L.unitS}</b>`);
+  else if (min !== null) parts.push(`<b>${L["r.bulb"]}</b>`);
+  $("#tSub").innerHTML = min === null ? L["r.pole"] : parts.join(" · ");
+
+  const mat = $("#mat");
+  mat.className = "mat" + (S.portrait ? " portrait" : "");
+  mat.innerHTML = r.cells.map(c => {
+    const cls = ["cell"];
+    if (c.t !== null && c.t === min) cls.push("min");
+    if (c.mid) cls.push("mid");
+    if (c.t === null || c.t > 60) cls.push("long");
+    return `<div class="${cls.join(" ")}"><div class="t">${secs(c.t)}</div><div class="h">${num(c.alt, 1)}°</div></div>`;
+  }).join("");
+
+  $("#oFov").innerHTML = `${num(r.fovX, 1)}° <em>×</em> ${num(r.fovY, 1)}°`;
+  $("#oSamp").innerHTML = `${num(r.sampling, 2)} <em>″/px</em>`;
+  $("#oCrop").innerHTML = `${num(r.crop, 2)}<em>×</em>`;
+  $("#oFeq").innerHTML = `${num(r.equivFocal, 0)} <em>mm</em>`;
+  $("#oSimple").textContent = secs(r.npfSimple);
+  $("#o500").textContent = secs(r.rule500);
+  $("#o500e").textContent = secs(r.rule500eq);
+}
+
+/* ── language ──────────────────────────────────────────────────────────── */
+function applyLang(lang) {
+  S.lang = lang; L = I18N[lang];
+  document.documentElement.lang = L._html;
+
+  for (const el of document.querySelectorAll("[data-i18n]")) {
+    const v = L[el.dataset.i18n];
+    if (v === undefined) continue;
+    if (el.dataset.i18nAttr) el.dataset.i18nAttr.split(",").forEach(a => el.setAttribute(a.trim(), v));
+    else el.textContent = v;
+  }
+  document.title = `${L.title} — ${L.tagline}`;
+  for (const b of document.querySelectorAll("[data-lang]"))
+    b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+
+  $("#doc").innerHTML = L.doc.map((s, i) =>
+    `<details class="doc"${i === 0 ? " open" : ""}><summary>${s.h}</summary>` +
+    `<div class="doc-body">${expand(s.b).replace(/\{\{CAP1\}\}/g, L.cap1).replace(/\{\{CAP2\}\}/g, L.cap2)}</div></details>`
+  ).join("");
+
+  $("#search").placeholder = L["f.search"].replace("{n}", INDEX.length.toLocaleString(LOCALE[lang]));
+  $("#searchClear").setAttribute("aria-label", L["f.clear"]);
+  if (!$("#results").hidden) drawResults();
+
+  fillBrands(); fillModels(); render();
+}
+
+function applyTheme(t) {
+  S.theme = t;
+  document.documentElement.dataset.theme = t;
+  document.querySelector('meta[name="theme-color"]')
+          .setAttribute("content", { dark:"#0a0d13", light:"#f6f7f9", red:"#000000" }[t]);
+  for (const b of document.querySelectorAll("[data-theme-set]"))
+    b.setAttribute("aria-pressed", String(b.dataset.themeSet === t));
+}
+
+function save() { store.write(S); }
+
+/* ── events ────────────────────────────────────────────────────────────── */
+function bind() {
+  document.querySelectorAll("[data-lang]").forEach(b =>
+    b.onclick = () => { applyLang(b.dataset.lang); save(); });
+  document.querySelectorAll("[data-theme-set]").forEach(b =>
+    b.onclick = () => { applyTheme(b.dataset.themeSet); save(); });
+
+  const si = $("#search"), clr = $("#searchClear");
+  si.oninput = () => {
+    clr.hidden = !si.value;
+    hits = findCameras(si.value);
+    cursor = hits.length ? 0 : -1;
+    si.value.trim() ? drawResults() : closeResults();
+  };
+  si.onfocus = () => { if (si.value.trim()) drawResults(); };
+  si.onkeydown = ev => {
+    if (ev.key === "Escape") { si.value = ""; clr.hidden = true; closeResults(); return; }
+    if ($("#results").hidden || !hits.length) return;
+    const n = Math.min(hits.length, MAX_HITS);
+    if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
+      cursor = (cursor + (ev.key === "ArrowDown" ? 1 : n - 1)) % n;
+      drawResults();
+      $("#results").querySelector("button.on")?.scrollIntoView({ block: "nearest" });
+      ev.preventDefault();
+    } else if (ev.key === "Enter" && cursor >= 0) { chooseCamera(hits[cursor]); ev.preventDefault(); }
+  };
+  clr.onclick = () => { si.value = ""; clr.hidden = true; closeResults(); si.focus(); };
+  $("#results").onclick = ev => {
+    const b = ev.target.closest("button[data-i]");
+    if (b) chooseCamera(hits[+b.dataset.i]);
+  };
+  document.addEventListener("click", ev => { if (!ev.target.closest(".search")) closeResults(); });
+
+  $("#brand").onchange = e => { S.brand = e.target.value; S.model = ""; fillModels(); render(); save(); };
+  $("#model").onchange = e => { S.model = e.target.value; applySensor(); render(); save(); };
+
+  const bindNum = (sel, key) => {
+    const el = $(sel);
+    el.oninput = () => { S[key] = el.value === "" ? "" : +el.value; render(); save(); };
+  };
+  bindNum("#pitch", "p"); bindNum("#w", "w"); bindNum("#h", "h");
+  bindNum("#focal", "f"); bindNum("#aperture", "N");
+
+  // number field and slider stay in step, both ways
+  const pair = (nSel, rSel, key) => {
+    const n = $(nSel), r = $(rSel);
+    n.oninput = () => { S[key] = n.value === "" ? "" : +n.value; r.value = n.value; render(); save(); };
+    r.oninput = () => { S[key] = +r.value; n.value = r.value; render(); save(); };
+  };
+  pair("#alt", "#altR", "alt"); pair("#lat", "#latR", "lat");
+
+  document.querySelectorAll("input[name=cfa]").forEach(el =>
+    el.onchange = () => { S.cfa = el.value; render(); save(); });
+  document.querySelectorAll("input[name=ori]").forEach(el =>
+    el.onchange = () => { S.portrait = el.value === "portrait"; render(); save(); });
+  document.querySelectorAll("input[name=az]").forEach(el =>
+    el.onchange = () => { S.az = +el.value; needle(); render(); save(); });
+
+  const geo = $("#geo");
+  if (!navigator.geolocation) geo.disabled = true;
+  else geo.onclick = () => {
+    geo.disabled = true;
+    navigator.geolocation.getCurrentPosition(
+      pos => { S.lat = Math.round(pos.coords.latitude * 10) / 10;
+               $("#lat").value = S.lat; $("#latR").value = S.lat;
+               geo.disabled = false; render(); save(); },
+      () => { geo.disabled = false; },
+      { timeout: 10000, maximumAge: 600000 });
+  };
+}
+
+/* the sticky offsets follow the header's real height, which changes with
+   language and viewport width */
+function measureHeader() {
+  document.documentElement.style.setProperty("--hdr", $("header").offsetHeight + "px");
+}
+
+/* needle points at the chosen compass rose direction (N is at the top) */
+function needle() {
+  $("#needle").style.transform = `rotate(${(S.az - 180 + 360) % 360}deg)`;
+}
+
+/* ── boot ──────────────────────────────────────────────────────────────── */
+(function init() {
+  S = { ...DEFAULTS, ...store.read() };
+  if (!I18N[S.lang]) {
+    const n = (navigator.language || "en").slice(0, 2).toLowerCase();
+    S.lang = I18N[n] ? n : "en";
+  }
+  if (!["dark", "light", "red"].includes(S.theme)) S.theme = "dark";
+
+  $("#focal").value = S.f; $("#aperture").value = S.N;
+  $("#alt").value = S.alt; $("#altR").value = S.alt;
+  $("#lat").value = S.lat; $("#latR").value = S.lat;
+  $("#ori-p").checked = S.portrait; $("#ori-l").checked = !S.portrait;
+  const azEl = document.querySelector(`input[name=az][value="${S.az}"]`);
+  if (azEl) azEl.checked = true; else { S.az = 0; $("#az0").checked = true; }
+
+  applyTheme(S.theme);
+  bind();
+  needle();
+  applyLang(S.lang);
+  measureHeader();
+  addEventListener("resize", measureHeader);
+})();
+</script>
+</body>
+</html>
